@@ -1,0 +1,19 @@
+{
+  "name": "spiderweb-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "dir"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirarj/SpiderWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirarj/SpiderWeb/issues"
+  },
+  "homepage": "https://github.com/mirarj/SpiderWeb#readme"
+}
