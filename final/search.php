@@ -380,17 +380,12 @@ curl_close($curl);
                 genres.forEach(element => {
                     if (genre_array_php[key] == element) {
                         genre_string += key;
-                        if(genres[genres.length-1] == element){
-                            console.log("Last Element")
-                        }
-                        else {
-                            genre_string += ", ";
-                        }
+                        genre_string += ", ";
                     }
                     
                 });
             }
-            document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
+            document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string.substring(0,genre_string.length-2) + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
             
             document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
             get_cast_info(movie_id, i);
