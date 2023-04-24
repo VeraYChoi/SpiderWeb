@@ -1,0 +1,11 @@
+{
+    "name": "kilan/spider-web-main",
+    "type": "project",
+    "authors": [
+        {
+            "name": "VeraChoi",
+            "email": "46577610+VeraChoi@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
