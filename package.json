@@ -1,20 +1,20 @@
 {
-  "name": "web-programming",
+  "name": "spiderweb-main",
   "version": "1.0.0",
   "description": "",
-  "main": "about.html",
+  "main": "index.html",
   "scripts": {
-    "start": "node hello.js",
-    "test": "dir"
+    "test": "dir",
+    "start": "login.php"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VeraYChoi/WebProgramming.git"
+    "url": "git+https://github.com/VeraYChoi/SpiderWeb.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VeraYChoi/WebProgramming/issues"
+    "url": "https://github.com/VeraYChoi/SpiderWeb/issues"
   },
-  "homepage": "https://github.com/VeraYChoi/WebProgramming#readme"
+  "homepage": "https://github.com/VeraYChoi/SpiderWeb#readme"
 }
