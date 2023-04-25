@@ -363,7 +363,7 @@
         }
         // const wishlist_id = [299534, 299536];
         // const watched_id = [];
-        var recommend_id = [];
+        
         var similar_id = [];
         
         async function produce_output() {
@@ -381,7 +381,7 @@
                 var obj = my_data["results"];
 
                 for (let k = 0; k < obj.length; k++) {
-                    recommend_id.push(obj[k]["id"]);
+                    rec_arr.push(obj[k]["id"]);
                 }
                 console.log("recommend id so far: " + recommend_id);
                 if (page < my_data["total_pages"]) {
