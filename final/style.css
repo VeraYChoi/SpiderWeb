@@ -94,13 +94,13 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 }
 
 #info_column {
+	line-height: 15px;
+    	font-size: 20px;
 	height: 450px;
 	margin-left: 2%;
 	width: 50%;
 	display: inline-block;
 	vertical-align:top;
-	line-height: 3 em;
-    font-size: 5 em;
 }
 .castMembers {
     margin-left: auto;
@@ -119,6 +119,8 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
         height: auto;
     }
     #info_column {
+	line-height: 30px;
+    	font-size: 20px;
         margin-left: 5%;
         width: 80%;
         display: block;
