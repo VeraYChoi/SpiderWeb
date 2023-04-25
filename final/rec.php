@@ -368,6 +368,8 @@
         
         async function produce_output() {
             var arr = wishlist_id + watched_id;
+            console.log("wishlist: " + wishlist_id);
+            console.log("watched: " + watched_id);
             console.log("arr: " + arr);
             var rec_arr = [];
             let i = 0, page = 0;
