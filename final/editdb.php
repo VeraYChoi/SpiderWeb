@@ -64,8 +64,13 @@ $sql = "";
 // $sql = "INSERT INTO `Watched`(`id`, `UserId`, `MoveId`, `Review`, `Favorite`) VALUES (DEFAULT,'mjain02','22222','this movie was amazing', '1')";
 // $sql = "INSERT INTO `Favorites`(`id`, `UserId`, `MoveId`) VALUES (DEFAULT,'mjain02','22222')";
 // $sql = "INSERT INTO `Favorites`(`id`, `UserId`, `MoveId`) VALUES (DEFAULT,'mjain02','22222')";
+// $sql = "DELETE FROM `users` WHERE `id` IN (2,4,5,6)";
+// $sql = "ALTER TABLE `Watched` DROP `Favorite`";
+// $sql = "ALTER TABLE `Watched` DROP `Review`";
+// $sql = "ALTER TABLE `Favorites` MODIFY `UserId` VARCHAR(255) NOT NULL";
+// $sql = "ALTER TABLE `Watched` MODIFY `UserId` VARCHAR(255) NOT NULL";
+// $sql = "ALTER TABLE `WatchLater` MODIFY `UserId` VARCHAR(255) NOT NULL";
 // consistent dtype sizes
-// drop empty user, unused cols
 
 $x = $conn->query($sql);
 disp_query($x);

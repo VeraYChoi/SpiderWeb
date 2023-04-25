@@ -20,7 +20,7 @@
 
    
 
-    $sql = "INSERT INTO `Watched` (`id`, `UserId`, `MovieId`, `Review`, `Favorite`) VALUES (DEFAULT, '$user_id', '$movie_id', DEFAULT, DEFAULT)";
+    $sql = "INSERT INTO `Watched` (`id`, `UserId`, `MovieId`) VALUES (DEFAULT, '$user_id', '$movie_id')";
     
     $result = $conn->query($sql);
 
