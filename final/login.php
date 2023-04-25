@@ -6,6 +6,7 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type = "image/png" href="images/logo.ico">
 	<title>SpiderWeb Movies - Log In</title>
 	<style>
 		body {text-align: center;}
