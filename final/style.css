@@ -100,9 +100,16 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
     .movieClass {
         max-width: 90%;
     }
+    #image_column {
+        width: 100%;
+        display: block;
+        height: auto;
+    }
     #info_column {
         margin-left: 5%;
+        width: 100%;
         display: block;
+        height: auto;
     }
     #cast_button {
         display: block;
