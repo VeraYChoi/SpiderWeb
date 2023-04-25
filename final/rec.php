@@ -283,6 +283,7 @@ curl_close($curl);
         // const wishlist_id = [299534];
         // const watched_id = [299536];
         const arr = wishlist_id.concat(watched_id);
+        console.log("arr lenght: + arr.length);
         if (arr.length == 0) {
             document.getElementById("show_data").innerHTML += "Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!";
         }
@@ -333,7 +334,6 @@ curl_close($curl);
 
 
     function output(movie_id, i, title, img_source, genres, overview, date) {
-        document.getElementById("show_data").innerHTML = "";
         document.getElementById("show_data").innerHTML += "<div id='movie" + i + "' style='border: 1px solid black'>"
        
         var genre_array_php = <?= json_encode($genre_name_id) ?>;
