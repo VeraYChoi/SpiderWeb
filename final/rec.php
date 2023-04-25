@@ -367,7 +367,7 @@
         var similar_id = [];
         
         async function produce_output() {
-            var arr = wishlist_id + watched_id;
+            var arr = wishlist_id.concat(watched_id);
             console.log("wishlist: " + wishlist_id);
             console.log("watched: " + watched_id);
             console.log("arr: " + arr);
