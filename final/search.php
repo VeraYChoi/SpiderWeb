@@ -169,12 +169,12 @@ session_start();
                 //console.log("people lenght: " + cast_length);
                 
                 if (cast_length == 0) {
-                    document.getElementById("cast" + i).innerHTML += "<li id='cast_item0'> No cast information found at this time. </li>";
+                    document.getElementById("cast" + i).innerHTML += "<li class='castMembers' id='cast_item0'> No cast information found at this time. </li>";
                 }
                 else {
                     for (let k = 0; k < cast_length; k++) {
                         if (people["cast"][k].known_for_department == "Acting") {
-                            document.getElementById("cast" + i).innerHTML += "<li id='cast_item" + k + "'> " + people["cast"][k].name + "</li>";
+                            document.getElementById("cast" + i).innerHTML += "<li class='castMembers' id='cast_item" + k + "'> " + people["cast"][k].name + "</li>";
                         }
                     }
                 }
