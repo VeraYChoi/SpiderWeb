@@ -5,207 +5,78 @@ session_start();
 
 <html>
 
-    <head>
-	    <meta charset="utf-8"/>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://kit.fontawesome.com/a7de828ebd.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SpiderWeb Search</title>
-        <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="utf-8"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #FFF8F0;
+            margin: 0;
+            padding: 0;
+        }
 
-    </head>
+        body {
+            height: 100%;
+        }
 
-    
+        #search h1 {
+            text-align: center;
+            font-size: 50px;
+            color: #E84855;
+            display: block;
+        }
 
-<style>
+        #search #h3_div {
+            padding: 30px;
+            width: 400px;
+            margin: 0 auto;
+            display: block;
+        }
 
-    * {
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #FFF8F0;
-        margin: 0;
-        padding: 0;
-    }
+        #search h3 {
+            display: block;
+            text-align: center;
+            font-size: 25px;
+            color: #001B2E;
+        }
 
-    body {
-        height: 100%;
-    }
+        #search {
+            //background-color: #E84855;
+            width: 1000px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 40px;
+        }
 
-    #search h1 {
-        text-align: center;
-        font-size: 50px;
-        color: #E84855;
-        display: block;
-    }
+        #query {
+            color: black;
+            background-color: #00CFC140;
+            font-size: 30px;
+            width:500px;
+            border: 0px;
+            border-radius: 15px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 30px;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+            -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+        }
 
-    #search #h3_div {
-        padding: 30px;
-        width: 400px;
-        margin: 0 auto;
-        display: block;
-    }
+        #genre_select {
 
-    #search h3 {
-        display: block;
-        text-align: center;
-        font-size: 25px;
-        color: #001B2E;
-    }
+        }
+    </style>
 
-    #search {
-        //background-color: #E84855;
-        width: 1000px;
-        margin: 0 auto;
-        display: block;
-        margin-top: 40px;
-
-    }
-
-
-    #query {
-        color: black;
-        background-color: #00CFC1;
-        font-size: 30px;
-        width:500px;
-        border: 0px;
-        border-radius: 15px;
-        margin: 0 auto;
-        display: block;
-        margin-top: 30px;
-        padding: 20px;
-        text-align: center;
-        color: #333;
-        -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
-        box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
-    }
-
-    #genre_select {
-
-    }
-  
-    #cast_button {
-        padding: 10px;
-        font-size: 1em;
-        background-color: #001B2E;
-        border: 0px;
-        color: #FFF8F0;
-        //display: block;
-        //margin-right: 50%;
-        //margin-left: 50%;
-        //width: 300px;
-        margin:0 auto;
-        display:block;
-        font-size: 30px;
-        margin-bottom: 30px;
-    }
-
-
-
-    ul {
-        display: none;
-        //display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    #show_data div, p, li, h2, strong, ul {
-        background-color: #001B2E;
-    }
-
-    #show_data > div {
-        border-radius: 20px;
-        width: 80%;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 30px;
-        overflow: hidden;
-    }
-    #show_data p, li, h2 {
-        color: #FFF8F0;
-    }
-
-    #poster {
-        width: 250px;
-        margin-top: 30px;
-        margin-left: 30px;
-        display: block;
-    }
-
-    #title {
-        color: #E84855;
-        margin-top: 50px;
-    }
-
-    strong {
-        color: #00CFC1;
-    }
-
-
-
-    #image_column {
-        height: 450px;
-        width: 40%;
-        display: inline-block;
-        float: left:
-    }
-
-    #info_column {
-        height: 450px;
-        margin-left: 2%;
-        width: 50%;
-        display: inline-block;
-        //float: left;
-        
-        vertical-align:top;
-    }
-
-    #add_buttons button:first-child{
-        display: block;
-        margin-bottom: 30px;
-        border-radius: 30px;
-        border: 0px;
-        background-color: #E84855;
-        font-size: 25px;
-        color: #FFF8F0;
-        padding: 15px;
-        margin:0 auto;
-        display:block;
-        margin-bottom: 30px;
-        width: 300px;
-
-    }
-
-  
-
-    #add_buttons button:nth-child(2) {
-        display: block;
-        margin-bottom: 30px;
-        border-radius: 30px;
-        border: 0px;
-        background-color: #00CFC1;
-        font-size: 25px;
-        color: #FFF8F0;
-        padding: 15px;
-        margin:0 auto;
-        margin-bottom: 30px;
-        width: 300px;
-    }
-
-    #add_buttons button:nth-child(3) {
-        display: none;
-        margin-bottom: 30px;
-        border-radius: 30px;
-        border: 0px;
-        background-color: #AFE1AF;
-        font-size: 25px;
-        color: #FFF8F0;
-        padding: 15px;
-        margin:0 auto;
-        margin-bottom: 30px;
-        width: 300px;
-    }
-
-</style>
+    <title>SpiderWeb Search</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 
 
 <body>
@@ -227,78 +98,71 @@ session_start();
     <p id="release"></p>
     <p id="description"></p>
     <p id="genres"></p>
-    
 </div>
 
 <?php
-$url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US';
-$collection_name = 'genres';
-$request_url = $url . '/' . $collection_name;
-$curl = curl_init($request_url);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_HTTPHEADER, [
-  'X-genres-Host: api.themoviedb.org/3/genre/movie/list?api_key=',
-  'X-genres-Key: fcabeffb7c941589973c5ba5beb7f636',
-  'Content-Type: application/json'
-]);
-$response = curl_exec($curl);
-$decoded_json = json_decode($response, true);
-$genres = $decoded_json['genres'];
-$genre_name_id = array();
-foreach($genres as $genre) {
-    $genre_name_id[$genre['name']] = $genre['id'];
-}
+    $url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US';
+    $collection_name = 'genres';
+    $request_url = $url . '/' . $collection_name;
+    $curl = curl_init($request_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, [
+    'X-genres-Host: api.themoviedb.org/3/genre/movie/list?api_key=',
+    'X-genres-Key: fcabeffb7c941589973c5ba5beb7f636',
+    'Content-Type: application/json'
+    ]);
+    $response = curl_exec($curl);
+    $decoded_json = json_decode($response, true);
+    $genres = $decoded_json['genres'];
+    $genre_name_id = array();
+    foreach($genres as $genre) {
+        $genre_name_id[$genre['name']] = $genre['id'];
+    }
 
-
-curl_close($curl);
-
+    curl_close($curl);
 ?>
-
-
 
 <script>
 
-        function get_cast_info(movie_id, i) {
-            let URL = "https://api.themoviedb.org/3/movie/"+movie_id+"/credits?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US";
-                res = fetch(URL)
-                    .then (res => res.text())
-                    .then (data => 
-                    {
-                        var people = JSON.parse(data);
-                        var cast_length = Object.keys(people["cast"]).length;
-                        //console.log("people lenght: " + cast_length);
-                        
-                        if (cast_length == 0) {
-                            document.getElementById("cast" + i).innerHTML += "<li id='cast_item0'> No cast information found at this time. </li>";
+    function get_cast_info(movie_id, i) {
+        let URL = "https://api.themoviedb.org/3/movie/"+movie_id+"/credits?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US";
+        res = fetch(URL)
+            .then (res => res.text())
+            .then (data => 
+            {
+                var people = JSON.parse(data);
+                var cast_length = Object.keys(people["cast"]).length;
+                //console.log("people lenght: " + cast_length);
+                
+                if (cast_length == 0) {
+                    document.getElementById("cast" + i).innerHTML += "<li id='cast_item0'> No cast information found at this time. </li>";
+                }
+                else {
+                    for (let k = 0; k < cast_length; k++) {
+                        if (people["cast"][k].known_for_department == "Acting") {
+                            document.getElementById("cast" + i).innerHTML += "<li id='cast_item" + k + "'> " + people["cast"][k].name + "</li>";
                         }
-                        else {
-                            for (let k = 0; k < cast_length; k++) {
-                                if (people["cast"][k].known_for_department == "Acting") {
-                                    document.getElementById("cast" + i).innerHTML += "<li id='cast_item" + k + "'> " + people["cast"][k].name + "</li>";
-                                }
-                            }
-                        }
-                    })
-                    .catch (error => console.log(error))
+                    }
+                }
+            })
+            .catch (error => console.log(error))
+    }
 
+    function showCast(i) {
+        var x = document.getElementById("cast" + i);
+        var button = document.getElementById("cast_button");
+        if (button.innerHTML == "Click to see cast info!") {
+            x.style.display = "grid";
+            button.innerHTML = "Click to close cast info!";
         }
-
-        function showCast(i) {
-            var x = document.getElementById("cast" + i);
-            var button = document.getElementById("cast_button");
-            if (button.innerHTML == "Click to see cast info!") {
-                x.style.display = "grid";
-                button.innerHTML = "Click to close cast info!";
-            }
-            else {
-                x.style.display = "none";
-                button.innerHTML = "Click to see cast info!";
-            }
+        else {
+            x.style.display = "none";
+            button.innerHTML = "Click to see cast info!";
         }
-
-        
-        function add_to_watched(i, movie_id) {
-            <?php
+    }
+    
+    function add_to_watched(i, movie_id) {
+        <?php
             if (isset($_SESSION['userid'])){
                 echo 'user_id = "'.$_SESSION['userid'].'";';
             }
@@ -306,60 +170,55 @@ curl_close($curl);
                 echo 'alert("Please log in to add to your watched list");';
                 echo "return;";
             }
-            ?>
-            //console.log("clicked" + i);
-            console.log("$('#add_to_watched'):eq(i).html(): " + $("#add_to_watched" + i).html());
-            if ($("#add_to_watched" + i).html() == "Add to watched") {
-                $("#add_to_watched" + i).html("Remove from watched");
-                $("#add_to_watched" + i).css("background-color","red");
-                $("#add_to_wishlist" + i).css("display","none");
-                $("#fav" + i).css("display","block");
-                $.ajax({
-                    url: "addtowatch.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    }
+        ?>
+        //console.log("clicked" + i);
+        console.log("$('#add_to_watched'):eq(i).html(): " + $("#add_to_watched" + i).html());
+        if ($("#add_to_watched" + i).html() == "Add to watched") {
+            $("#add_to_watched" + i).html("Remove from watched");
+            $("#add_to_watched" + i).css("background-color","red");
+            $("#add_to_wishlist" + i).css("display","none");
+            $("#fav" + i).css("display","block");
+            $.ajax({
+                url: "addtowatch.php",
+                type: "POST",
+                data: {
+                    movieid: movie_id,
+                    userid: user_id
+                }
 
-                });
-                
-            }
-            else if ($("#add_to_watched" + i).html() == "Remove from watched") {
-   
-                $("#add_to_watched" + i).html("Add to watched");
-                $("#add_to_watched" + i).css("background-color","#E84855");
-                $("#add_to_wishlist" + i).css("display","block");
-                $("#fav" + i).html("Add to favourites");
-                $("#fav" + i).css("display","none");
-                $.ajax({
-                    url: "removefromwatch.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    }
-
-                });
-                $.ajax({
-                    url: "removefromfavs.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    }
-
-                });
-
-            }
-
+            });
             
-                
         }
+        else if ($("#add_to_watched" + i).html() == "Remove from watched") {
 
+            $("#add_to_watched" + i).html("Add to watched");
+            $("#add_to_watched" + i).css("background-color","#E84855");
+            $("#add_to_wishlist" + i).css("display","block");
+            $("#fav" + i).html("Add to favourites");
+            $("#fav" + i).css("display","none");
+            $.ajax({
+                url: "removefromwatch.php",
+                type: "POST",
+                data: {
+                    movieid: movie_id,
+                    userid: user_id
+                }
 
-        function add_to_fav(i, movie_id) {
-            <?php
+            });
+            $.ajax({
+                url: "removefromfavs.php",
+                type: "POST",
+                data: {
+                    movieid: movie_id,
+                    userid: user_id
+                }
+
+            });
+        }       
+    }
+
+    function add_to_fav(i, movie_id) {
+        <?php
             if (isset($_SESSION['userid'])){
                 echo 'user_id = "'.$_SESSION['userid'].'";';
             }
@@ -367,40 +226,38 @@ curl_close($curl);
                 echo 'alert("Please log in to add to your favorites");';
                 echo "return;";
             }
-            ?>
-            if ($("#fav" + i).html() == "Add to favourites") {
-                console.log("clicked fav")
-                $("#fav" + i).html("Remove from favourites");
-                $("#fav" + i).css("background-color","red");
-                $.ajax({
-                    url: "addtofaves.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    }
+        ?>
+        if ($("#fav" + i).html() == "Add to favourites") {
+            console.log("clicked fav")
+            $("#fav" + i).html("Remove from favourites");
+            $("#fav" + i).css("background-color","red");
+            $.ajax({
+                url: "addtofaves.php",
+                type: "POST",
+                data: {
+                    movieid: movie_id,
+                    userid: user_id
+                }
 
-                });
-            }
-            else if ($("#fav" + i).html() == "Remove from favourites") {
-                $("#fav" + i).html("Add to favourites");
-                $("#fav" + i).css("background-color","#AFE1AF");
-                $.ajax({
-                    url: "removefromfavs.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    }
-
-                });
-            }
-
-            
+            });
         }
+        else if ($("#fav" + i).html() == "Remove from favourites") {
+            $("#fav" + i).html("Add to favourites");
+            $("#fav" + i).css("background-color","#AFE1AF");
+            $.ajax({
+                url: "removefromfavs.php",
+                type: "POST",
+                data: {
+                    movieid: movie_id,
+                    userid: user_id
+                }
 
-        function add_to_wishlist(i, movie_id) {
-            <?php
+            });
+        } 
+    }
+
+    function add_to_wishlist(i, movie_id) {
+        <?php
             if (isset($_SESSION['userid'])){
                 echo 'user_id = "'.$_SESSION['userid'].'";';
             }
@@ -408,213 +265,187 @@ curl_close($curl);
                 echo 'alert("Please log in to add to your wishlist");';
                 echo "return;";
             }
-            ?>
-            if ($("#add_to_wishlist" + i).html() == "Add to wishlist") {
-                $("#add_to_wishlist" + i).html("Remove from wishlist");
-                $("#add_to_wishlist" + i).css("background-color","red");
-                $("#add_to_watched" + i).css("display","none");
-                $.ajax({
-                    url: "addtowish.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    }
-
-                });
-            }
-            else if ($("#add_to_wishlist" + i).html() == "Remove from wishlist") {
-   
-                $("#add_to_wishlist" + i).html("Add to wishlist");
-                $("#add_to_wishlist" + i).css("background-color","#00CFC1");
-                $("#add_to_watched" + i).css("display","block");
-                $.ajax({
-                    url: "removefromwish.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    }
-
-                });
-            }
-
-            
-            
-        }
-
-        function buildSearch() {
-            let URL = "https://api.themoviedb.org/3/genre/movie/list?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US";
-            let t = "<input name='query' id='query' type='text' placeholder='Enter search query here'>";
-				res = fetch(URL)
-                    .then (res => res.text())
-                    .then (data => 
-                    {
-
-						t += "<select name='genre_select' id='genre_select' size='1'>";
-                        genres = JSON.parse(data)
-						//document.getElementById("search").innerHTML += "<select name='genre_select' size='1'>";
-                        t += "<option> No Selection </option>";
-						for (let i = 0; i < genres.genres.length; i++) {
-                            t += "<option>" + genres.genres[i].name + "</option>";
-                        }
-						t += "</select>";
-						t += "<br /><button onclick='getAPI()'>Submit</button>"
-						document.getElementById("search").innerHTML += t;
-                       
-                    })
-                    .catch (error => console.log(error))
-                    
-        }
-
-        function output(movie_id, i, title, img_source, genre_array_php, genres, overview, date) {
-            document.getElementById("show_data").innerHTML += "<div id='movie" + i + "' style='border: 1px solid black'>"
-            document.getElementById("movie" + i).innerHTML += "<div id='image_column'> <img id='poster' src='"+"http://image.tmdb.org/t/p/w500/" + img_source + "'> </div>";
-            
-             let genre_string = "";
-             let count = 1;
-            for (var key in genre_array_php) {
-                genres.forEach(element => {
-                    if (genre_array_php[key] == element) {
-                        genre_string += key;
-                        if(genres[genres.length-1] == element){
-                            console.log("Last Element")
-                        }
-                        else {
-                            genre_string += ", ";
-                        }
-                    }
-                    
-                });
-            }
-            document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
-            
-            document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
-            get_cast_info(movie_id, i);
-            document.getElementById("movie" + i).innerHTML += "</ul></div>"
-            //document.getElementById("movie" + i).innerHTML += "</p>";
-            document.getElementById("movie" + i).innerHTML += "<div id='add_buttons'><button id='add_to_watched" +i + "' onclick='add_to_watched(" + i + ", " + movie_id + ")'>Add to watched</button><button id='add_to_wishlist" + i + "' onclick='add_to_wishlist(" + i + ", " + movie_id + ")'>Add to wishlist</button><button id='fav" + i + "' onclick='add_to_fav(" + i + ", " + movie_id + ")'>Add to favourites</button></div>";
-            document.getElementById("show_data").innerHTML += "</div>"
-            var isWatch = false;
-            <?php
-                        if (isset($_SESSION['userid'])){
-                            echo 'user_id = "'.$_SESSION['userid'].'";';
-                        }
-                        else {
-                            echo 'alert("Please log in to add to your wishlist");';
-                            echo "return;";
-                        }
-                    ?>
-
+        ?>
+        if ($("#add_to_wishlist" + i).html() == "Add to wishlist") {
+            $("#add_to_wishlist" + i).html("Remove from wishlist");
+            $("#add_to_wishlist" + i).css("background-color","red");
+            $("#add_to_watched" + i).css("display","none");
             $.ajax({
-                    url: "iswatchpresent.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    },
-                    success: function(response){
-                        if (response=='true'){
-                            $("#add_to_watched" + i).html("Remove from watched");
-                            $("#add_to_watched" + i).css("background-color","red");
-                            $("#add_to_wishlist" + i).css("display","none");
-                            $("#fav" + i).css("display","block");
-                            isWatch = true;
-                        }
-                    }
+                url: "addtowish.php",
+                type: "POST",
+                data: {
+                    movieid: movie_id,
+                    userid: user_id
+                }
 
-        });
-        <?php
-                    if (isset($_SESSION['userid'])){
-                        echo 'user_id = "'.$_SESSION['userid'].'";';
-                    }
-                    else {
-                        echo 'alert("Please log in to add to your wishlist");';
-                        echo "return;";
-                    }
-                    ?>
-
-        $.ajax({
-                    url: "isfavepresent.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    },
-                    success: function(response){
-                        if (response=='true'){
-                            $("#fav" + i).html("Remove from favourites");
-                            $("#fav" + i).css("background-color","red");
-                        }
-                    }
-
-        });
-        <?php
-                    if (isset($_SESSION['userid'])){
-                        echo 'user_id = "'.$_SESSION['userid'].'";';
-                    }
-                    else {
-                        echo 'alert("Please log in to add to your wishlist");';
-                        echo "return;";
-                    }
-                    ?>
-
-        $.ajax({
-        
-            url: "iswishpresent.php",
-                    type: "POST",
-                    data: {
-                        movieid: movie_id,
-                        userid: user_id
-                    },
-                    success: function(response){
-                        if (response=='true' && isWatch==false){
-                            $("#add_to_wishlist" + i).html("Remove from wishlist");
-                            $("#add_to_wishlist" + i).css("background-color","red");
-                            $("#add_to_watched" + i).css("display","none");
-                        }
-                    }
-
-        });
-        
+            });
         }
-        function getAPI() {
+        else if ($("#add_to_wishlist" + i).html() == "Remove from wishlist") {
+            $("#add_to_wishlist" + i).html("Add to wishlist");
+            $("#add_to_wishlist" + i).css("background-color","#00CFC1");
+            $("#add_to_watched" + i).css("display","block");
+            $.ajax({
+                url: "removefromwish.php",
+                type: "POST",
+                data: {
+                    movieid: movie_id,
+                    userid: user_id
+                }
 
-            document.getElementById("show_data").innerHTML = "";
-            let query = $("#query").val();
+            });
+        }        
+    }
 
-            if (query == "") {
-                alert("Query is required!")
+    function buildSearch() {
+        let URL = "https://api.themoviedb.org/3/genre/movie/list?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US";
+        let t = "<input name='query' id='query' type='text' placeholder='Enter search query here'>";
+            res = fetch(URL)
+                .then (res => res.text())
+                .then (data => 
+                {
+                    t += "<select name='genre_select' id='genre_select' size='1'>";
+                    genres = JSON.parse(data)
+                    //document.getElementById("search").innerHTML += "<select name='genre_select' size='1'>";
+                    t += "<option> No Selection </option>";
+                    for (let i = 0; i < genres.genres.length; i++) {
+                        t += "<option>" + genres.genres[i].name + "</option>";
+                    }
+                    t += "</select>";
+                    t += "<br /><button onclick='getAPI()'>Submit</button>"
+                    document.getElementById("search").innerHTML += t;
+                    
+                })
+                .catch (error => console.log(error))
+                
+    }
+
+    function output(movie_id, i, title, img_source, genre_array_php, genres, overview, date) {
+        document.getElementById("show_data").innerHTML += "<div id='movie" + i + "' style='border: 1px solid black'>"
+        document.getElementById("movie" + i).innerHTML += "<div id='image_column'> <img id='poster' src='"+"http://image.tmdb.org/t/p/w500/" + img_source + "'> </div>";
+        
+        let genre_string = "";
+        let count = 1;
+        for (var key in genre_array_php) {
+            genres.forEach(element => {
+                if (genre_array_php[key] == element) {
+                    genre_string += key;
+                    if(genres[genres.length-1] == element){
+                        console.log("Last Element")
+                    }
+                    else {
+                        genre_string += ", ";
+                    }
+                }
+                
+            });
+        }
+        document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
+
+        document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
+        get_cast_info(movie_id, i);
+        document.getElementById("movie" + i).innerHTML += "</ul></div>"
+        //document.getElementById("movie" + i).innerHTML += "</p>";
+        document.getElementById("movie" + i).innerHTML += "<div id='add_buttons'><button id='add_to_watched" +i + "' onclick='add_to_watched(" + i + ", " + movie_id + ")'>Add to watched</button><button id='add_to_wishlist" + i + "' onclick='add_to_wishlist(" + i + ", " + movie_id + ")'>Add to wishlist</button><button id='fav" + i + "' onclick='add_to_fav(" + i + ", " + movie_id + ")'>Add to favourites</button></div>";
+        document.getElementById("show_data").innerHTML += "</div>"
+        var isWatch = false;
+        <?php
+            if (isset($_SESSION['userid'])){
+                echo 'user_id = "'.$_SESSION['userid'].'";';
             }
-
             else {
-                let genre = $('select[name="genre_select"]').val();
+                echo 'console.log("what to do here");';
+                echo "return;";
+            }
+        ?>
 
-                let URL = "https://api.themoviedb.org/3/search/movie?api_key=fcabeffb7c941589973c5ba5beb7f636&query=" + query;
+        $.ajax({
+            url: "iswatchpresent.php",
+            type: "POST",
+            data: {
+                movieid: movie_id,
+                userid: user_id
+            },
+            success: function(response){
+                if (response=='true'){
+                    $("#add_to_watched" + i).html("Remove from watched");
+                    $("#add_to_watched" + i).css("background-color","red");
+                    $("#add_to_wishlist" + i).css("display","none");
+                    $("#fav" + i).css("display","block");
+                    isWatch = true;
+                }
+            }
+        });
 
-                URL += "&adult=false";
+        $.ajax({
+            url: "isfavepresent.php",
+            type: "POST",
+            data: {
+                movieid: movie_id,
+                userid: user_id
+            },
+            success: function(response){
+                if (response=='true'){
+                    $("#fav" + i).html("Remove from favourites");
+                    $("#fav" + i).css("background-color","red");
+                }
+            }
+        });
 
-                /* Step 1: Make instance of request object...
-                ...to make HTTP request after page is loaded*/
-                res = fetch(URL)
-                    .then (res => res.text())
-                    .then (data => 
-                    {
-                        console.log(data);
-                        console.log(data.lenght);
-                        movies = JSON.parse(data)
-                        //console.log(Object.keys(movies).lenght);
-                        console.log(movies);
-                        console.log(movies["results"]);
-                        console.log("num: " + movies["total_results"]);
-                        console.log("movies[results][0]: " + movies["results"][0]);
-                        var genre_array_php = <?= json_encode($genre_name_id) ?>;
-                        
+        $.ajax({
+            url: "iswishpresent.php",
+            type: "POST",
+            data: {
+                movieid: movie_id,
+                userid: user_id
+            },
+            success: function(response){
+                if (response=='true' && isWatch==false){
+                    $("#add_to_wishlist" + i).html("Remove from wishlist");
+                    $("#add_to_wishlist" + i).css("background-color","red");
+                    $("#add_to_watched" + i).css("display","none");
+                }
+            }
+        });
+    }
 
-                        if (movies["total_results"] == 0) {
-                            // add something
-                        }
-                       
+    function getAPI() {
+
+        document.getElementById("show_data").innerHTML = "";
+        let query = $("#query").val();
+
+        if (query == "") {
+            alert("Query is required!")
+        }
+
+        else {
+            let genre = $('select[name="genre_select"]').val();
+
+            let URL = "https://api.themoviedb.org/3/search/movie?api_key=fcabeffb7c941589973c5ba5beb7f636&query=" + query;
+
+            URL += "&adult=false";
+
+            /* Step 1: Make instance of request object...
+            ...to make HTTP request after page is loaded*/
+            res = fetch(URL)
+                .then (res => res.text())
+                .then (data => 
+                {
+                    console.log(data);
+                    console.log(data.lenght);
+                    movies = JSON.parse(data)
+                    //console.log(Object.keys(movies).lenght);
+                    console.log(movies);
+                    console.log(movies["results"]);
+                    console.log("num: " + movies["total_results"]);
+                    console.log("movies[results][0]: " + movies["results"][0]);
+                    var genre_array_php = <?= json_encode($genre_name_id) ?>;
+                    
+
+                    if (movies["total_results"] == 0) {
+                        results = document.getElementById("show_data");
+                        results.innerHTML = "<p>No movies found</p>"
+                    }
+                    else {
                         if (genre == "No Selection") {
                             for (let i = 0; i < movies["total_results"]; i++) {
                                 let obj = movies["results"][i];
@@ -648,60 +479,58 @@ curl_close($curl);
                                 });
                             }
                         }
-                        
-                    })
-                    .catch (error => console.log(error))
+                    }
+                })
+                .catch (error => console.log(error))                    
+        }
+    }
 
-                        
+    function getGenreArray() {
+        const name = [];
+        const id = [];
+        request = new XMLHttpRequest();
+        console.log("1 - request object created");
+
+        request.open("GET", "https://api.themoviedb.org/3/genre/movie/list?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US", true)
+
+        console.log("2 - opened request file");
+
+        // Step 3: set up event handler/callback
+
+        request.onreadystatechange = function() {
+        console.log("3 - readystatechange event fired.");
+
+        if (request.readyState == 4 && request.status == 200) {
+            // Step 5: wait for done + success
+            console.log("5 - response received");
+            result = request.responseText;
+            genres = JSON.parse(result);
+            for (let i = 0; i < genres.genres.length; i++) {
+                name.push(genres.genres[i].name);
+                id.push(genres.genres[i].id);
             }
+            console.log("name: " + name);
+            console.log("id: " + id);
+        }
+        else if (request.readyState == 4 && request.status != 200) {
+            console.log("Something is wrong!  Check the logs to see where this went off the rails");
         }
 
-        function getGenreArray() {
-            const name = [];
-            const id = [];
-            request = new XMLHttpRequest();
-            console.log("1 - request object created");
+        else if (request.readyState == 3) {
+            console.log("Too soon!  Try again");
+        }
 
-            request.open("GET", "https://api.themoviedb.org/3/genre/movie/list?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US", true)
+        console.log("name1: " + name);
+        console.log("id1: " + id);
+        return name;
 
-            console.log("2 - opened request file");
-
-            // Step 3: set up event handler/callback
-
-            request.onreadystatechange = function() {
-            console.log("3 - readystatechange event fired.");
-
-            if (request.readyState == 4 && request.status == 200) {
-                // Step 5: wait for done + success
-                console.log("5 - response received");
-                result = request.responseText;
-                genres = JSON.parse(result);
-                for (let i = 0; i < genres.genres.length; i++) {
-                    name.push(genres.genres[i].name);
-                    id.push(genres.genres[i].id);
-                }
-                console.log("name: " + name);
-                console.log("id: " + id);
-            }
-            else if (request.readyState == 4 && request.status != 200) {
-                console.log("Something is wrong!  Check the logs to see where this went off the rails");
-            }
-
-            else if (request.readyState == 3) {
-                console.log("Too soon!  Try again");
-            }
-
-            console.log("name1: " + name);
-            console.log("id1: " + id);
-            return name;
-
-            }
+        }
         // Step 4: fire off the HTTP request
-            request.send();
-            console.log("4 - Request sent");
-        }
-        
-        buildSearch();
+        request.send();
+        console.log("4 - Request sent");
+    }
+    
+    buildSearch();
        
 </script>
 

@@ -67,7 +67,7 @@ header h1 {
 	display: none;
 	position: absolute;
 	background-color: #f1f1f1;
-	min-width: 160px;
+	min-width: 180px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 	text-align: center;
@@ -123,7 +123,7 @@ echo "<header>";
 				echo "<form method='post' action='$filename' class='loginout'><input type='submit' id='log' name='logout' value='Log Out'></form>";
 			}
 			else{
-				echo "<form method='get' action='login.php' class='loginout'><input type='submit' id='log' value='Log In'></form>";
+				echo "<form method='get' action='login.php' class='loginout'><input type='submit' id='log' value='Log In'><input type='hidden' name='origin' value='".$filename."'></form>";
 			}
 		echo "</div>";
 	echo "</div>";

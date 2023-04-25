@@ -4,14 +4,14 @@ session_start();
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SpiderWeb Movies - Log In</title>
-<style>
-	body {text-align: center;}
-	p {text-align:center}
-</style>
-<link rel='stylesheet' href='style.css'>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SpiderWeb Movies - Log In</title>
+	<style>
+		body {text-align: center;}
+		p {text-align:center}
+	</style>
+	<link rel='stylesheet' href='style.css'>
 </head>
 
 <body>
@@ -23,7 +23,6 @@ session_start();
 ?>
 
 <?php
-
 	$helptext = "<p id='help'>Don't have an account? <a href='./signup.php'>Sign up here</a>.</p>";
 	$errortext = "<p id='error'></p>";
 	if ($_POST) {
@@ -47,12 +46,16 @@ session_start();
 				foreach ($result2 as $rowid2=>$rowdata2) {
 					if ($pw == $rowdata2['password']) {
 						$_SESSION['userid'] = $unem;
-						// echo "success, redirect to profile page for ".$_SESSION['userid'];
-						// header('profile.php');
-						echo '<script type="text/javascript">window.location = "search.php"</script>';
+						if (isset($_GET['origin'])){
+							$redirect = $_GET['origin'];
+						}
+						else {
+							$redirect = 'search.php';
+						}
+						echo '<script type="text/javascript">window.location = "'.$redirect.'"</script>';
 					}
 					else {
-						echo "<p id='error'>Incorrect password.</p>";
+						$errortext = "<p id='error'>Incorrect password.</p>";
 					}
 				}
 			}
@@ -63,9 +66,13 @@ session_start();
 				foreach ($result2 as $rowid2=>$rowdata2) {
 					if ($pw == $rowdata2['password']) {
 						$_SESSION['userid'] = $rowdata2['username'];
-						// echo "success, redirect to profile page for ".$_SESSION['userid'];
-						// header('profile.php');
-						echo '<script type="text/javascript">window.location = "search.php"</script>';
+						if (isset($_GET['origin'])){
+							$redirect = $_GET['origin'];
+						}
+						else {
+							$redirect = 'search.php';
+						}
+						echo '<script type="text/javascript">window.location = "'.$redirect.'"</script>';
 					}
 					else {
 						$errortext = "<p id='error'>Incorrect password.</p>";
@@ -80,12 +87,22 @@ session_start();
 		}
 
 		$conn->close();
-	
 	}
-
 ?>
 <div class='ls'>
-<form method="post" id="login_form" class='ls' action="login.php">
+<?php
+	if(isset($_GET['origin'])) {
+		$actionurl = 'login.php?origin='.$_GET['origin'];
+	}
+	else {
+		$actionurl = 'login.php';
+	}
+?>
+<form method="post" id="login_form" class='ls' action="
+<?php
+echo $actionurl;
+?>
+">
 	<label for="un">Username/Email</label>
 	<input type='text' name='username' id='un'>
 	<label for="pw">Password</label>
@@ -98,13 +115,13 @@ session_start();
 <?php
 	echo $helptext;
 ?>
-
+<p class='unavailable'></p>
 
 <script>
 
-
 	form_obj = document.querySelector("#login_form");
 	errortext = document.querySelector("#error");
+	loggedin = document.querySelector(".unavailable");
 	
 	form_obj.onsubmit = function() {
 		un = document.querySelector("#un").value;
@@ -123,7 +140,14 @@ session_start();
 
 		return true;
 	}
-
+	<?php
+		if (isset($_SESSION['userid'])) {
+			echo "form_obj.style.display = 'none';";
+			echo "errortext.style.display = 'none';";
+			$p = "<p class='unavailable'>You are already logged in. Search for new movies to watch <a href='./login.php?origin=wishlist.php'>here</a>!</p>";
+			echo "loggedin.innerHTML = ".$p.";";
+		}
+	?>
 </script>
 
 </div>

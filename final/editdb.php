@@ -63,9 +63,9 @@ $sql = "";
 // $sql = "ALTER TABLE Favorites ADD `id` INT(20) PRIMARY KEY AUTO_INCREMENT FIRST";
 // $sql = "INSERT INTO `Watched`(`id`, `UserId`, `MoveId`, `Review`, `Favorite`) VALUES (DEFAULT,'mjain02','22222','this movie was amazing', '1')";
 // $sql = "INSERT INTO `Favorites`(`id`, `UserId`, `MoveId`) VALUES (DEFAULT,'mjain02','22222')";
+// $sql = "INSERT INTO `Favorites`(`id`, `UserId`, `MoveId`) VALUES (DEFAULT,'mjain02','22222')";
 // consistent dtype sizes
-// rename move to movie
-// drop empty user
+// drop empty user, unused cols
 
 $x = $conn->query($sql);
 disp_query($x);
