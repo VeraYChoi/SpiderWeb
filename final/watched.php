@@ -221,8 +221,12 @@
     function output(movie_id, i, title, img_source, genres, overview, date) {
         document.getElementById("show_data").innerHTML += "<div id='movie" + i + "' style='border: 1px solid black'>"
         document.getElementById("movie" + i).innerHTML += "<div id='image_column'> <img id='poster' src='"+"http://image.tmdb.org/t/p/w500/" + img_source + "'> </div>";
-
-        document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genres + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
+	var genre_string="";
+    genres.forEach(element => {
+		genre_string += element;
+		genre_string += ", ";
+    });
+        document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string.substring(0,genre_string.length-2) + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
         
         document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
         get_cast_info(movie_id, i);
@@ -310,7 +314,7 @@
                     let title = movie.original_title;
                     let genres = [];
                     for (let g = 0; g < movie["genres"].length; g++) {
-                        genres[g] = movie["genres"][g];
+                        genres[g] = movie["genres"][g][1];
                     }
                     
                     let img_source = movie["poster_path"];
