@@ -285,7 +285,7 @@ curl_close($curl);
         const arr = wishlist_id.concat(watched_id);
         console.log("arr lenght: " + arr.length);
         if (arr.length == 0) {
-            document.write("Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!");
+            document.write("<h1 style='text-align: center; margin-top: 10px;' >Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</h1>");
         }
         else {
             console.log("wishlist: " + wishlist_id);
