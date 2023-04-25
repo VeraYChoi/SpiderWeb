@@ -16,6 +16,25 @@
     </head>
 
     <body>
+        
+        <?php
+$url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US';
+$collection_name = 'genres';
+$request_url = $url . '/' . $collection_name;
+$curl = curl_init($request_url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HTTPHEADER, [
+  'X-genres-Host: api.themoviedb.org/3/genre/movie/list?api_key=',
+  'X-genres-Key: fcabeffb7c941589973c5ba5beb7f636',
+  'Content-Type: application/json'
+]);
+$response = curl_exec($curl);
+$decoded_json = json_decode($response, true);
+$genres = $decoded_json['genres'];
+$genre_name_id = array();
+foreach($genres as $genre) {
+    $genre_name_id[$genre['name']] = $genre['id'];
+}
     <script>
 
     function get_cast_info(movie_id, i) {
@@ -409,9 +428,19 @@
 
     function output(movie_id, i, title, img_source, genres, overview, date) {
         document.getElementById("show_data").innerHTML += "<div id='movie" + i + "' style='border: 1px solid black'>"
+        var genre_array_php = <?= json_encode($genre_name_id) ?>;
+        let genre_string = "";
+        for (var key in genre_array_php) {
+            genres.forEach(element => {
+                if (genre_array_php[key] == element) {
+                    genre_string += key;
+                    genre_string += ", ";
+                }
+            });
+        }
         document.getElementById("movie" + i).innerHTML += "<div id='image_column'> <img id='poster' src='"+"http://image.tmdb.org/t/p/w500/" + img_source + "'> </div>";
 
-        document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genres + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
+        document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
         
         document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
         get_cast_info(movie_id, i);
