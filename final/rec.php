@@ -383,13 +383,14 @@
                 for (let k = 0; k < obj.length; k++) {
                     recommend_id.push(obj[k]["id"]);
                 }
+                console.log("recommend id so far: " + recommend_id);
                 if (page < my_data["total_pages"]) {
                     page++;
                 }
                 else {
                     i++;
                 }
-                let title = obj.original_title;
+                let title = obj["original_title"];
                 console.log("title: " + title);
                 let genres = [];
                 for (let g = 0; g < obj["genres"].length; g++) {
