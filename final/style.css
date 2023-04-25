@@ -94,8 +94,8 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 }
 
 #info_column {
-	line-height: 3px;
-    	font-size: 5px;
+	line-height: 15px;
+    	font-size: 20px;
 	height: 450px;
 	margin-left: 2%;
 	width: 50%;
