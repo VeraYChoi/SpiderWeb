@@ -57,6 +57,7 @@ session_start();
             color: black;
             background-color: #00CFC140;
             font-size: 30px;
+            max-width: 90%;
             width:500px;
             border: 0px;
             border-radius: 15px;
