@@ -390,7 +390,7 @@
                     i++;
                 }
                 let title = obj.original_title;
-                console.log("title: + title);
+                console.log("title: " + title);
                 let genres = [];
                 for (let g = 0; g < obj["genres"].length; g++) {
                     genres[g] = obj["genres"][g];
