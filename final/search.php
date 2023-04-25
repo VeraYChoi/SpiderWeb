@@ -23,6 +23,26 @@ session_start();
             height: 100%;
             width: 100%;
         }
+	    
+	    #btn {
+		  display: none;
+		  position: fixed;
+		  bottom: 20px;
+		  right: 30px;
+		  z-index: 99;
+		  border: none;
+		  outline: none;
+		  background-color: #E84855;
+		  color: white;
+		  cursor: pointer;
+		  padding: 15px;
+		  border-radius: 15px;
+		  font-size: 18px;
+		}
+
+		#btn:hover {
+		  background-color: #00CFC1;
+		}
 
         #search h1 {
             text-align: center;
