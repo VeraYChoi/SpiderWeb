@@ -372,7 +372,7 @@
             console.log("watched: " + watched_id);
             console.log("arr: " + arr);
             var rec_arr = [];
-            let i = 0, page = 0;
+            let i = 0, page = 0, k = 0;
             while(rec_arr.lenght < 10)
             {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
@@ -390,6 +390,7 @@
                     i++;
                 }
                 let title = obj.original_title;
+                console.log("title: + title);
                 let genres = [];
                 for (let g = 0; g < obj["genres"].length; g++) {
                     genres[g] = obj["genres"][g];
@@ -400,6 +401,7 @@
                 let date = obj["release_date"];
                 let movie_id = obj["id"];
                 output(movie_id, k, title, img_source, genres, overview, date);
+                k++;
             }
         }
         
