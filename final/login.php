@@ -113,6 +113,7 @@ echo $actionurl;
 	?>
 	<input type = "submit" value = "Log In" />
 </form>
+</div>
 <?php
 	echo $helptext;
 ?>
@@ -145,7 +146,7 @@ echo $actionurl;
 		if (isset($_SESSION['userid'])) {
 			echo "form_obj.style.display = 'none';";
 			echo "errortext.style.display = 'none';";
-			$p = "<p class='unavailable'>You are already logged in. Search for new movies to watch <a href='./login.php?origin=wishlist.php'>here</a>!</p>";
+			$p = "<p class='unavailable'>You are already logged in. Search for new movies to watch <a href='./search.php'>here</a>!</p>";
 			echo "loggedin.innerHTML = ".$p.";";
 		}
 	?>
