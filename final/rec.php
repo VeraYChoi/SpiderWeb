@@ -7,6 +7,8 @@
     <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type = "image/png" href="images/logo.ico"></link>
     <title>Recommendations</title>
     <link rel='stylesheet' href='style.css'>
     <style>
@@ -27,12 +29,12 @@
                 //console.log("people lenght: " + cast_length);
                 
                 if (cast_length == 0) {
-                    document.getElementById("cast" + i).innerHTML += "<li id='cast_item0'> No cast information found at this time. </li>";
+                    document.getElementById("cast" + i).innerHTML += "<li class = 'castMembers' id='cast_item0'> No cast information found at this time. </li>";
                 }
                 else {
                     for (let k = 0; k < cast_length; k++) {
                         if (people["cast"][k].known_for_department == "Acting") {
-                            document.getElementById("cast" + i).innerHTML += "<li id='cast_item" + k + "'> " + people["cast"][k].name + "</li>";
+                            document.getElementById("cast" + i).innerHTML += "<li class = 'castMembers' id='cast_item" + k + "'> " + people["cast"][k].name + "</li>";
                         }
                     }
                 }
