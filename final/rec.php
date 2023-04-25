@@ -293,8 +293,8 @@ curl_close($curl);
             console.log("arr: " + arr);
             const rec_arr = [];
             console.log("rec arr lenght: " + rec_arr.length);
-            let i = 0, page = 1, k = 0;
-            while(rec_arr.length < 10)
+            let i = 0, page = 1, k = 0, count = 0;
+            while(rec_arr.length < 20)
             {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
 
@@ -304,16 +304,24 @@ curl_close($curl);
                 console.log("my data: ", my_data);
                 var obj = my_data["results"];
                 console.log("obj: " + obj);
+                if (my_data["total_results"] < 20) {
+                    count++;
+                }
+                if (count == arr.length) {
+                    document.write("<p class='unavailable'>Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</p>");
+                    break;
+                }
+                if (page < my_data["total_pages"]) {
+                    page++;
+                }
+                else {
+                    i++;
+                }
 
                 for (let k = 0; k < obj.length; k++) {
                     rec_arr.push(obj[k]["id"]);
                     console.log("recommend id so far: " + rec_arr);
-                    if (page < my_data["total_pages"]) {
-                        page++;
-                    }
-                    else {
-                        i++;
-                    }
+                    
                     let title = obj[k]["original_title"];
                     console.log("title: " + title);
                     let genres = [];
@@ -325,7 +333,22 @@ curl_close($curl);
                     let overview = obj[k]["overview"];
                     let date = obj[k]["release_date"];
                     let movie_id = obj[k]["id"];
-                    output(movie_id, k, title, img_source, genres, overview, date);
+                    var can_output = true;
+                    rec_arr.forEach((rec_movie) => {
+                        if (rec_movie == movie_id) {
+                            can_output = false;
+                            break;
+                        }
+                    });
+                    arr.forEach((movie) => {
+                        if (movie == movie_id) {
+                            can_output = false;
+                            break;
+                        }
+                    });
+                    if (can_output == true) {
+                        output(movie_id, k, title, img_source, genres, overview, date);
+                    }
                 }
             }
         }
@@ -362,6 +385,7 @@ curl_close($curl);
                 echo 'user_id = "'.$_SESSION['userid'].'";';
             }
             else {
+                echo 'document.write("ttttttttttttttttttttttttttttt")';
                 echo "return;";
             }
         ?>
@@ -463,7 +487,7 @@ curl_close($curl);
             echo "<script>produce_output();</script>";
         }
         else {
-            echo "<p class='unavailable'>This page is only available to logged in users. Please <a href='./login.php?origin=rec.php'>Log In</a> here.</p>";
+            echo "<p class='unavailable'>This page is only available to logged in users. Please <a href='./login.php'>Log In</a> here.</p>";
         }
     ?>
 
