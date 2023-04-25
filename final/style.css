@@ -99,6 +99,8 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 	width: 50%;
 	display: inline-block;
 	vertical-align:top;
+	line-height: 15 px;
+        font-size: 20 px;
 }
 .castMembers {
     margin-left: auto;
