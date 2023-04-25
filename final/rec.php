@@ -302,132 +302,11 @@ foreach($genres as $genre) {
         }
     }
         
-    // produce_output();
 
-    /*
-        async function main_recommend(page) {
-            for (let i = 0; i < wishlist_id.length; i++) {
-                let apiUrl = "https://api.themoviedb.org/3/movie/" + wishlist_id[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + 1;
-                
-                var my_data = await getJson_recommend(apiUrl);
-                var obj = my_data["results"];
-                for (let k = 1; k <= my_data["total_pages"]; k ++) {
-                    let apiUrl = "https://api.themoviedb.org/3/movie/" + wishlist_id[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + k;
-                
-                    var my_data = await getJson_recommend(apiUrl);
-                    var obj = my_data["results"];
-
-                    for (let k = 0; k < obj.length; k++) {
-                        recommend_id.push(obj[k]["id"]);
-                    }
-                }
-            }
-            for (let i = 0; i < 
-            .length; i++) {
-                let apiUrl = "https://api.themoviedb.org/3/movie/" + watched_id[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + 1;
-                
-                var my_data = await getJson_recommend(apiUrl);
-                var obj = my_data["results"];
-                for (let k = 1; k <= my_data["total_pages"]; k ++) {
-                    let apiUrl = "https://api.themoviedb.org/3/movie/" + watched_id[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + k;
-                
-                    var my_data = await getJson_recommend(apiUrl);
-                    var obj = my_data["results"];
-
-                    for (let k = 0; k < obj.length; k++) {
-                        recommend_id.push(obj[k]["id"]);
-                    }
-                }
-            }
-
-            return recommend_id;
-            
-        }
-        
-        async function getJson_similar(url) {
-            let response = await fetch(url);
-            let data = await response.json()
-            return data;
-        }
-
-        async function main_similar(page) {
-            for (let i = 0; i < wishlist_id.length; i++) {
-                var apiUrl = "https://api.themoviedb.org/3/movie/" + wishlist_id[i] + "/similar?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
-                
-                var my_data = await getJson_recommend(apiUrl);
-                var obj = my_data["results"];
-                    for (let k = 0; k < obj.length; k++) {
-                        similar_id.push(obj[k]["id"]);
-                    }
-            }
-            for (let i = 0; i < watched_id.length; i++) {
-                let apiUrl = "https://api.themoviedb.org/3/movie/" + watched_id[i] + "/similar?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
-                
-                var my_data = await getJson_recommend(apiUrl);
-                var obj = my_data["results"];
-
-
-                    for (let k = 0; k < obj.length; k++) {
-                        //console.log("pushing: " + obj[k]["id"]);
-                        similar_id.push(obj[k]["id"]);
-                    }
-                }
-
-            return similar_id;
-        }
-
-
-
-        async function main() {
-            while (recommend_id.length < 30) {
-                await main_recommend(1);
-            }
-
-            console.log("recommend: " + recommend_id);
-
-            let uniqueRec = [...new Set(recommend_id)];
-            
-            
-            let page_num = 1;
-            
-            while (uniqueRec.length < 40) {
-                await main_similar(page_num);
-                uniqueRec = uniqueRec.concat(similar_id);
-                uniqueRec = [...new Set(uniqueRec)];
-                page_num++;
-            }
-            console.log("final rec here: " + uniqueRec);
-            console.log("final rec size here: " + uniqueRec.length);
-
-            var whole_array = watched_id.concat(wishlist_id);
-            console.log("whole array size: " + whole_array);
-
-            for (let t = 0; t < whole_array.length; t++) {
-                for (let f = 0; f < uniqueRec.length; f++) {
-                    if (whole_array[t] == uniqueRec[f]) {
-                        const x = uniqueRec.splice(f, 1);
-                    }
-                }
-            }
-
-            
-            console.log("similar: " + similar_id);
-            console.log("final rec after: " + uniqueRec);
-            console.log("final rec size now: " + uniqueRec.length);
-
-            function findDuplicates(arr) {
-                return arr.filter((currentValue, currentIndex) =>
-                arr.indexOf(currentValue) !== currentIndex);
-            }
-
-            //const array = [...uniqueRec];
-
-            getAPI(uniqueRec);
-        }
-    */
 
     function output(movie_id, i, title, img_source, genres, overview, date) {
         document.getElementById("show_data").innerHTML += "<div id='movie" + i + "' style='border: 1px solid black'>"
+        /*
         var genre_array_php = <?= json_encode($genre_name_id) ?>;
         let genre_string = "";
         for (var key in genre_array_php) {
@@ -437,11 +316,11 @@ foreach($genres as $genre) {
                     genre_string += ", ";
                 }
             });
-        }
+        }*/
         
         document.getElementById("movie" + i).innerHTML += "<div id='image_column'> <img id='poster' src='"+"http://image.tmdb.org/t/p/w500/" + img_source + "'> </div>";
 
-        document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string.substring(0,genre_string.length-2) + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
+        document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genres + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
         
         document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
         get_cast_info(movie_id, i);
