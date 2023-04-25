@@ -11,6 +11,27 @@
 		<link rel='stylesheet' href='style.css'>
 	    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     		<link rel="icon" type = "image/png" href="images/logo.ico">
+	    <style>
+		    #btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #E84855;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+#btn:hover {
+  background-color: #00CFC1;
+}
+	    </style>
     </head>
 
     <body>
@@ -357,10 +378,9 @@
 	    <button onclick="scroll_top()" id="btn" title="Go to top">Top</button>
 
 <script>
-// Get the button
 let mybutton = document.getElementById("btn");
 
-// When the user scrolls down 20px from the top of the document, show the button
+// show the button when user scerolls down
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -371,7 +391,7 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
+// scroll to the top when button is clicked
 function scroll_top() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
