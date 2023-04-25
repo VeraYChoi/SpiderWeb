@@ -71,14 +71,20 @@ session_start();
             font-size: 20px;
             background-color: #00CFC140;
             width: 150px;
+            display: block;
             margin-left: auto;
             margin-right: auto;
             border-radius: 15px;
         }
+        #getMovies:hover {
+            -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 10px 1px rgba(0,0,0.5,0.5);
+        }
         #genre_select {
             font-size: 20px;
+            display: block;
             margin-left: auto;
-            margin-right: auto
+            margin-right: auto;
             background-color: #00CFC140;
             width: 150px;
         }
