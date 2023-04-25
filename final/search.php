@@ -21,6 +21,7 @@ session_start();
 
         body {
             height: 100%;
+            width: 100%;
         }
 
         #search h1 {
@@ -77,6 +78,7 @@ session_start();
             margin-right: auto;
             border-radius: 15px;
             border-color: #00CFC140;
+            margin-bottom: 20px;
         }
         #getMovies:hover {
             -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
@@ -92,6 +94,17 @@ session_start();
             background-color: #00CFC140;
             width: 150px;
         }
+        #poster {
+            max-width: 90%;
+        }
+        @media (max-width: 700px) {
+			.movieClass {
+                max-width: 90%;
+            }
+            #overview {
+                display: block;
+            }
+		}
     </style>
 
     <title>SpiderWeb Search</title>
@@ -341,7 +354,7 @@ session_start();
     }
 
     function output(movie_id, i, title, img_source, genre_array_php, genres, overview, date) {
-        document.getElementById("show_data").innerHTML += "<div id='movie" + i + "' style='border: 1px solid black'>"
+        document.getElementById("show_data").innerHTML += "<div class = 'movieClass' id='movie" + i + "' style='border: 1px solid black'>"
         document.getElementById("movie" + i).innerHTML += "<div id='image_column'> <img id='poster' src='"+"http://image.tmdb.org/t/p/w500/" + img_source + "'> </div>";
         
         let genre_string = "";
