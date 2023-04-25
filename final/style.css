@@ -40,7 +40,9 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 	border: 0px;
 	color: #FFF8F0;
 
-	margin:0 auto;
+    margin-top: 50px;
+	margin-left: auto;
+    margin-right: auto;
 	display:block;
 	font-size: 30px;
 	margin-bottom: 30px;
@@ -137,7 +139,9 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 	font-size: 25px;
 	color: #FFF8F0;
 	padding: 15px;
-	margin:0 auto;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 	display:block;
 	margin-bottom: 30px;
 	width: 300px;
