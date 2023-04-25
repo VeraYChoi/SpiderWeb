@@ -255,7 +255,7 @@ curl_close($curl);
         }
         $wishids_json = json_encode($wishids);
     
-        $sql = "SELECT MovieId from Watched WHERE UserId='".$curruser."'";
+        $sql = "SELECT MovieId from Favorites WHERE UserId='".$curruser."'";
         $q = $conn->query($sql);
         $watchedids = [];
         foreach ($q as $rowid=>$rowdata) {
@@ -269,8 +269,8 @@ curl_close($curl);
         echo "const watched_id = JSON.parse('".$watchedids_json."');";
     }
     else {
-        echo "const wishlist_id = [0];";
-        echo "const watched_id = [0];";
+        echo "const wishlist_id = [];";
+        echo "const watched_id = [];";
     }
     ?>
 
@@ -348,9 +348,8 @@ curl_close($curl);
                         }
                         return true;
                     });
-                    if (can_output == true) {
-                        output(movie_id, k, title, img_source, genres, overview, date);
-                    }
+                    output(movie_id, k, title, img_source, genres, overview, date);
+                    
                 }
             }
         }
