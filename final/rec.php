@@ -35,6 +35,7 @@ $genre_name_id = array();
 foreach($genres as $genre) {
     $genre_name_id[$genre['name']] = $genre['id'];
 }
+        ?>
     <script>
 
     function get_cast_info(movie_id, i) {
