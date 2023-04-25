@@ -314,7 +314,7 @@
                     let title = movie.original_title;
                     let genres = [];
                     for (let g = 0; g < movie["genres"].length; g++) {
-                        genres[g] = movie["genres"][g].name;
+                        genres[g] = movie["genres"][g]["name"];
                     }
                     
                     let img_source = movie["poster_path"];
