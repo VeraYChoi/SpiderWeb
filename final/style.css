@@ -21,7 +21,6 @@ body {
 
 h2 {color: #00cfc1;}
 p {color: #001b2e;}
-//Scroll to top button
 #btn {
   display: none;
   position: fixed;
@@ -39,7 +38,7 @@ p {color: #001b2e;}
 }
 
 #btn:hover {
-  background-color: #00CFC1; /* Add a dark-grey background on hover */
+  background-color: #00CFC1;
 }
 
 /* LOGIN/SIGNUP */
