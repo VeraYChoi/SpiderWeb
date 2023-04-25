@@ -114,16 +114,15 @@ echo "<header>";
             echo '<a href="watched.php">My Watch List</a>';
             echo '<a href="wishlist.php">My Wishlist</a>';
             echo '<a href="rec.php">My Recommendations</a>';
-            echo '<a href="connect.php">Connect with Others</a>';
 			if (isset($_POST['logout'])) {
 				session_destroy();
 				echo "<script type='text/javascript'>window.location = '$filename'</script>"; // refresh page
 			}
 			if (isset($_SESSION['userid'])){
-				echo "<form method='post' action='$filename' class='loginout'><input type='submit' id='log' name='logout' value='Log Out'></form>";
+				echo "<form method='post' action='login.php?origin=$filename' class='loginout'><input type='submit' id='log' name='logout' value='Log Out'></form>";
 			}
 			else{
-				echo "<form method='get' action='login.php' class='loginout'><input type='submit' id='log' value='Log In'><input type='hidden' name='origin' value='".$filename."'></form>";
+				echo "<form method='get' action='login.php?origin=$filename' class='loginout'><input type='submit' id='log' value='Log In'></form>";
 			}
 		echo "</div>";
 	echo "</div>";
