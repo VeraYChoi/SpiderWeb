@@ -367,51 +367,54 @@
         var similar_id = [];
         
         async function produce_output() {
-            var arr = wishlist_id.concat(watched_id);
+            const wishlist_id = [299534];
+            const watched_id = [299536];
+            const arr = wishlist_id.concat(watched_id);
             console.log("wishlist: " + wishlist_id);
             console.log("watched: " + watched_id);
             console.log("arr: " + arr);
-            var rec_arr = [];
-            let i = 0, page = 0, k = 0;
-            while(rec_arr.lenght < 10)
+            const rec_arr = [];
+            console.log("rec arr lenght: " + rec_arr.length);
+            let i = 0, page = 1, k = 0;
+            while(rec_arr.length < 10)
             {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
                 
-                var my_data = await getJson_recommend(apiUrl);
+                let response = await fetch(apiUrl);
+                console.log("response: " + response);
+                let my_data = await response.json()
+                console.log("my data: ", my_data);
                 var obj = my_data["results"];
+                console.log("obj: " + obj);
 
                 for (let k = 0; k < obj.length; k++) {
                     rec_arr.push(obj[k]["id"]);
-                }
-                console.log("recommend id so far: " + recommend_id);
-                if (page < my_data["total_pages"]) {
-                    page++;
-                }
-                else {
-                    i++;
-                }
-                let title = obj["original_title"];
-                console.log("title: " + title);
-                let genres = [];
-                for (let g = 0; g < obj["genres"].length; g++) {
-                    genres[g] = obj["genres"][g];
-                }
+                    console.log("recommend id so far: " + rec_arr);
+                    if (page < my_data["total_pages"]) {
+                        page++;
+                    }
+                    else {
+                        i++;
+                    }
+                    let title = obj[k]["original_title"];
+                    console.log("title: " + title);
+                    let genres = [];
+                    for (let g = 0; g < obj[k]["genre_ids"].length; g++) {
+                        genres[g] = obj[k]["genre_ids"][g];
+                    }
 
-                let img_source = obj["poster_path"];
-                let overview = obj["overview"];
-                let date = obj["release_date"];
-                let movie_id = obj["id"];
-                output(movie_id, k, title, img_source, genres, overview, date);
-                k++;
+                    let img_source = obj[k]["poster_path"];
+                    let overview = obj[k]["overview"];
+                    let date = obj[k]["release_date"];
+                    let movie_id = obj[k]["id"];
+                    output(movie_id, k, title, img_source, genres, overview, date);
+                }
+                
             }
         }
         
 
-        async function getJson_recommend(url) {
-            let response = await fetch(url);
-            let data = await response.json()
-            return data;
-        }
+        
         
         
         produce_output();
