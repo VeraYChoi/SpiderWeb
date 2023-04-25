@@ -183,6 +183,13 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 /* OTHER */
 td {padding: 0.5em; border: 1px solid;}
 
+p.unavailable {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 5%;
+	font-size: large;
+
+}
 /* rgb(#fff8f0)
 rgb(#e84855)
 rgb(#00cfc1)
