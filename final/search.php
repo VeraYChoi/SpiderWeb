@@ -75,6 +75,7 @@ session_start();
             margin-left: auto;
             margin-right: auto;
             border-radius: 15px;
+            border-color: #00CFC140;
         }
         #getMovies:hover {
             -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
@@ -85,6 +86,7 @@ session_start();
             display: block;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 0 px;
             background-color: #00CFC140;
             width: 150px;
         }
