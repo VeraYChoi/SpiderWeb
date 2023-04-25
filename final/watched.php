@@ -363,7 +363,7 @@
             echo "<script>getAPI(watched_id);</script>";
         }
         else {
-            echo "<p class='unavailable'>This page is only available to logged in users. Please <a href='./login.php'>Log In</a> here.</p>";
+            echo "<p class='unavailable'>This page is only available to logged in users. Please <a href='./login.php?origin=watched.php'>Log In</a> here.</p>";
         }
         ?>
 
