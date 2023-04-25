@@ -333,18 +333,20 @@ curl_close($curl);
                     let overview = obj[k]["overview"];
                     let date = obj[k]["release_date"];
                     let movie_id = obj[k]["id"];
-                    var can_output = true;
-                    rec_arr.forEach((rec_movie) => {
+                    let can_output = true;
+                    rec_arr.every((rec_movie) => {
                         if (rec_movie == movie_id) {
                             can_output = false;
-                            break;
+                            return false;
                         }
+                        return true;
                     });
-                    arr.forEach((movie) => {
+                    arr.every((movie) => {
                         if (movie == movie_id) {
                             can_output = false;
-                            break;
+                            return false;
                         }
+                        return true;
                     });
                     if (can_output == true) {
                         output(movie_id, k, title, img_source, genres, overview, date);
