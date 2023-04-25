@@ -21,6 +21,26 @@ body {
 
 h2 {color: #00cfc1;}
 p {color: #001b2e;}
+//Scroll to top button
+#btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #E84855;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+#btn:hover {
+  background-color: #00CFC1; /* Add a dark-grey background on hover */
+}
 
 /* LOGIN/SIGNUP */
 div.ls {display:flex; flex-direction:column; align-items: center}
