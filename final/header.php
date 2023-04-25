@@ -12,7 +12,7 @@ header h1 {
 	border-radius: 30px;
 	margin: 10px auto;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 16px;
 	font-size: 2em;
 	font-weight: bold;
 	color: #FFF8F0;

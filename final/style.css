@@ -24,7 +24,7 @@ p {color: #001b2e;}
 
 
 /* LOGIN/SIGNUP */
-div.ls {display:flex; flex-direction:column; align-items: center}
+div.ls {display:flex; flex-direction:column; align-items: center; margin-top:1em}
 form.ls {padding: 1em; 	border-radius: 30px; border: 2px double #E84855; position:center; margin:auto; display:flex; flex-direction:column; align-items: center; font-size:24px; width:70%; max-width: 400px;}
 form.ls label {font-weight: bold; margin-bottom: 0.5em;}
 /* form.ls input {margin:1em;} */
