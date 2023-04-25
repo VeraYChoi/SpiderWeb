@@ -283,7 +283,7 @@ curl_close($curl);
         // const wishlist_id = [299534];
         // const watched_id = [299536];
         const arr = wishlist_id.concat(watched_id);
-        console.log("arr lenght: + arr.length);
+        console.log("arr lenght: " + arr.length);
         if (arr.length == 0) {
             document.getElementById("show_data").innerHTML += "Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!";
         }
