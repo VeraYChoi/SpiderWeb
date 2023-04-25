@@ -365,13 +365,52 @@
         // const watched_id = [];
         var recommend_id = [];
         var similar_id = [];
+        
+        async function produce_output() {
+            var arr = wishlist_id + watched_id;
+            console.log("arr: " + arr);
+            var rec_arr = [];
+            let i = 0, page = 0;
+            while(rec_arr.lenght < 10)
+            {
+                let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
+                
+                var my_data = await getJson_recommend(apiUrl);
+                var obj = my_data["results"];
+
+                for (let k = 0; k < obj.length; k++) {
+                    recommend_id.push(obj[k]["id"]);
+                }
+                if (page < my_data["total_pages"]) {
+                    page++;
+                }
+                else {
+                    i++;
+                }
+                let title = obj.original_title;
+                let genres = [];
+                for (let g = 0; g < obj["genres"].length; g++) {
+                    genres[g] = obj["genres"][g];
+                }
+
+                let img_source = obj["poster_path"];
+                let overview = obj["overview"];
+                let date = obj["release_date"];
+                let movie_id = obj["id"];
+                output(movie_id, k, title, img_source, genres, overview, date);
+            }
+        }
+        
 
         async function getJson_recommend(url) {
             let response = await fetch(url);
             let data = await response.json()
             return data;
         }
-
+        
+        
+        produce_output();
+/*
         async function main_recommend(page) {
             for (let i = 0; i < wishlist_id.length; i++) {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + wishlist_id[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + 1;
@@ -389,7 +428,8 @@
                     }
                 }
             }
-            for (let i = 0; i < watched_id.length; i++) {
+            for (let i = 0; i < 
+            .length; i++) {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + watched_id[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + 1;
                 
                 var my_data = await getJson_recommend(apiUrl);
@@ -489,7 +529,7 @@
             //const array = [...uniqueRec];
 
             getAPI(uniqueRec);
-        }
+        }*/
 
 
 
@@ -632,7 +672,7 @@
 
 
 
-        main();
+        //main();
         //console.log("arr is: " + arr);
         //getAPI(arr);
 
