@@ -569,7 +569,28 @@ session_start();
        
 </script>
 
+<button onclick="scroll_top()" id="btn" title="Go to top">Top</button>
 
+<script>
+let mybutton = document.getElementById("btn");
+
+// show the button when the user scrolls down
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+//scroll to the top when button is clicked
+function scroll_top() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 
 </body>
 
