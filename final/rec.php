@@ -285,7 +285,7 @@ curl_close($curl);
         const arr = wishlist_id.concat(watched_id);
         console.log("arr lenght: " + arr.length);
         if (arr.length == 0) {
-            document.write("<h1 style='text-align: center; margin-top: 10px;' >Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</h1>");
+            document.write("<p class='unavailable'>Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</p>");
         }
         else {
             console.log("wishlist: " + wishlist_id);
@@ -362,7 +362,6 @@ curl_close($curl);
                 echo 'user_id = "'.$_SESSION['userid'].'";';
             }
             else {
-                echo 'document.write("ttttttttttttttttttttttttttttt")';
                 echo "return;";
             }
         ?>
