@@ -467,7 +467,7 @@ session_start();
                         results.innerHTML = "<p>No movies found</p>"
                     }
                     else {
-                        if (genre == "No Selection") {
+                        if (genre == "All genres") {
                             for (let i = 0; i < movies["total_results"]; i++) {
                                 let obj = movies["results"][i];
                                 let title = obj.title;
