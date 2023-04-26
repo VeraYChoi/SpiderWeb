@@ -4,15 +4,17 @@ session_start();
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Log In</title>
+	<link rel='stylesheet' href='style.css'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type = "image/png" href="images/logo.ico">
-	<title>SpiderWeb Movies - Log In</title>
+	<meta charset="utf-8">
+	<link rel="icon" type = "image/png" href="images/logo.ico">
 	<style>
 		body {text-align: center;}
 		p {text-align:center}
 	</style>
-	<link rel='stylesheet' href='style.css'>
 </head>
 
 <body>
