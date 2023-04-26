@@ -295,7 +295,7 @@ curl_close($curl);
             const rec_arr = [];
             console.log("rec arr lenght: " + rec_arr.length);
             let i = 0, page = 1, k = 0, count = 0, count_added = 0, mov_num = 0;
-            while(count_added <= arr.length * 3)
+            while(count_added < arr.length * 3)
             {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
 
