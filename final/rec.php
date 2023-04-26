@@ -309,14 +309,14 @@ curl_close($curl);
                     for (let k = 0; k < 3; k++) {
                         let can_output = true;
                         rec_arr.every((rec_movie) => {
-                            if (rec_movie == movie_id) {
+                            if (rec_movie == obj[k]["id"]) {
                                 can_output = false;
                                 return false;
                             }
                             return true;
                         });
                         arr.every((movie) => {
-                            if (movie == movie_id) {
+                            if (movie == obj[k]["id"]) {
                                 can_output = false;
                                 return false;
                             }
