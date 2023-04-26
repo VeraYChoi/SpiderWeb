@@ -339,6 +339,7 @@ curl_close($curl);
                             let movie_id = obj[k]["id"];
 
                             output(movie_id, mov_num++, title, img_source, genres, overview, date);
+                            count_added++;
                         }
                     }
                 }
