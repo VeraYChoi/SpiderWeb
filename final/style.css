@@ -81,6 +81,7 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 #title {
 	color: #E84855;
 	margin-top: 50px;
+	margin-bottom: 20px;
 }
 
 #show_data strong {
