@@ -3,6 +3,7 @@ header {
 	border-bottom: 2px solid #001B2E;
 	display: flex;
 	justify-content: space-between;
+	max-width:100%;
 }	
 
 header h1 {
@@ -17,8 +18,7 @@ header h1 {
 	font-weight: bold;
 	color: #FFF8F0;
 	background-color:#e84855;
-	width: 40%;
-	min-width: 300px;
+	width: 50%;
 	float: center;
 	max-height: 1em;
 }
