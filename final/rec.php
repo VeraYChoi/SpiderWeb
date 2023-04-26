@@ -338,7 +338,7 @@ curl_close($curl);
                             let date = obj[k]["release_date"];
                             let movie_id = obj[k]["id"];
 
-                            output(movie_id, i, title, img_source, genres, overview, date);
+                            output(movie_id, i++, title, img_source, genres, overview, date);
                         }
                     }
                 }
@@ -346,7 +346,6 @@ curl_close($curl);
                     document.write("<p class='unavailable'>Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</p>");
                     break;
                 }
-                i++;
             }
         }
     }
