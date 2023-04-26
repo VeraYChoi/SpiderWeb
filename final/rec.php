@@ -294,7 +294,7 @@ curl_close($curl);
             console.log("arr: " + arr);
             const rec_arr = [];
             console.log("rec arr lenght: " + rec_arr.length);
-            let i = 0, page = 1, k = 0, count = 0, count_added = 0;
+            let i = 0, page = 1, k = 0, count = 0, count_added = 0, mov_num = 0;
             while(count_added <= arr.length * 3)
             {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
@@ -338,7 +338,7 @@ curl_close($curl);
                             let date = obj[k]["release_date"];
                             let movie_id = obj[k]["id"];
 
-                            output(movie_id, i++, title, img_source, genres, overview, date);
+                            output(movie_id, mov_num++, title, img_source, genres, overview, date);
                         }
                     }
                 }
@@ -346,6 +346,7 @@ curl_close($curl);
                     document.write("<p class='unavailable'>Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</p>");
                     break;
                 }
+                i++;
             }
         }
     }
