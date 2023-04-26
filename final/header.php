@@ -18,7 +18,8 @@ header h1 {
 	font-weight: bold;
 	color: #FFF8F0;
 	background-color:#e84855;
-	width: 50%;
+	width: fit-content;
+	padding: 10px 1em 16px;
 	float: center;
 	max-height: 1em;
 }

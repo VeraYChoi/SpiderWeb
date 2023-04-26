@@ -85,6 +85,7 @@ session_start();
             color: #333;
             -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
             box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+            box-sizing:border-box
         }
         #getMovies {
             font-size: 20px;
