@@ -338,7 +338,7 @@ curl_close($curl);
                             let date = obj[k]["release_date"];
                             let movie_id = obj[k]["id"];
 
-                            output(movie_id, k, title, img_source, genres, overview, date);
+                            output(movie_id, i, title, img_source, genres, overview, date);
                         }
                     }
                 }
