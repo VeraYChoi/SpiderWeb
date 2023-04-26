@@ -286,7 +286,7 @@ curl_close($curl);
         const arr = wishlist_id.concat(watched_id);
         console.log("arr lenght: " + arr.length);
         if (arr.length == 0) {
-            document.write("<p class='unavailable'>Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</p>");
+            document.write("<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>");
         }
         else {
             console.log("wishlist: " + wishlist_id);
@@ -294,64 +294,59 @@ curl_close($curl);
             console.log("arr: " + arr);
             const rec_arr = [];
             console.log("rec arr lenght: " + rec_arr.length);
-            let i = 0, page = 1, k = 0, count = 0;
-            while(rec_arr.length < 20)
+            let i = 0, page = 1, k = 0, count = 0, count_added = 0;
+            while(count_added <= arr.length * 3)
             {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
 
                 let response = await fetch(apiUrl);
-                console.log("response: " + response);
                 let my_data = await response.json()
-                console.log("my data: ", my_data);
                 var obj = my_data["results"];
-                console.log("obj: " + obj);
-                if (my_data["total_results"] < 20) {
+                if (my_data["total_results"] == 0) {
                     count++;
+                }
+                else {
+                    for (let k = 0; k < 3; k++) {
+                        let can_output = true;
+                        rec_arr.every((rec_movie) => {
+                            if (rec_movie == movie_id) {
+                                can_output = false;
+                                return false;
+                            }
+                            return true;
+                        });
+                        arr.every((movie) => {
+                            if (movie == movie_id) {
+                                can_output = false;
+                                return false;
+                            }
+                            return true;
+                        });
+                        if (can_output) {
+                            rec_arr.push(obj[k]["id"]);
+                            console.log("recommend id so far: " + rec_arr);
+
+                            let title = obj[k]["original_title"];
+                            console.log("title: " + title);
+                            let genres = [];
+                            for (let g = 0; g < obj[k]["genre_ids"].length; g++) {
+                                genres[g] = obj[k]["genre_ids"][g];
+                            }
+
+                            let img_source = obj[k]["poster_path"];
+                            let overview = obj[k]["overview"];
+                            let date = obj[k]["release_date"];
+                            let movie_id = obj[k]["id"];
+
+                            output(movie_id, k, title, img_source, genres, overview, date);
+                        }
+                    }
                 }
                 if (count == arr.length) {
                     document.write("<p class='unavailable'>Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</p>");
                     break;
                 }
-                if (page < my_data["total_pages"]) {
-                    page++;
-                }
-                else {
-                    i++;
-                }
-
-                for (let k = 0; k < obj.length; k++) {
-                    rec_arr.push(obj[k]["id"]);
-                    console.log("recommend id so far: " + rec_arr);
-                    
-                    let title = obj[k]["original_title"];
-                    console.log("title: " + title);
-                    let genres = [];
-                    for (let g = 0; g < obj[k]["genre_ids"].length; g++) {
-                        genres[g] = obj[k]["genre_ids"][g];
-                    }
-
-                    let img_source = obj[k]["poster_path"];
-                    let overview = obj[k]["overview"];
-                    let date = obj[k]["release_date"];
-                    let movie_id = obj[k]["id"];
-                    let can_output = true;
-                    rec_arr.every((rec_movie) => {
-                        if (rec_movie == movie_id) {
-                            can_output = false;
-                            return false;
-                        }
-                        return true;
-                    });
-                    arr.every((movie) => {
-                        if (movie == movie_id) {
-                            can_output = false;
-                            return false;
-                        }
-                        return true;
-                    });
-                    output(movie_id, k, title, img_source, genres, overview, date);
-                    
-                }
+                i++;
             }
         }
     }
