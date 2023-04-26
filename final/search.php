@@ -111,6 +111,7 @@ session_start();
             margin-bottom: 0 px;
             background-color: #00CFC140;
             width: 150px;
+	    text-align : center;
         }
         #poster {
             max-width: 90%;
