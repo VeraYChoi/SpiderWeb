@@ -123,6 +123,7 @@ echo $actionurl;
 
 	form_obj = document.querySelector("#login_form");
 	errortext = document.querySelector("#error");
+	helptext = document.querySelector("#help");
 	loggedin = document.querySelector(".unavailable");
 	
 	form_obj.onsubmit = function() {
@@ -144,10 +145,11 @@ echo $actionurl;
 	}
 	<?php
 		if (isset($_SESSION['userid'])) {
-			echo "form_obj.style.display = 'none';";
-			echo "errortext.style.display = 'none';";
+			echo "form_obj.style.display = 'none';\n";
+			echo "errortext.style.display = 'none';\n";
+			echo "helptext.style.display = 'none';\n";
 			$p = "<p class='unavailable'>You are already logged in. Search for new movies to watch <a href='./search.php'>here</a>!</p>";
-			echo "loggedin.innerHTML = ".$p.";";
+			echo 'loggedin.innerHTML = "'.$p.'";';
 		}
 	?>
 </script>
