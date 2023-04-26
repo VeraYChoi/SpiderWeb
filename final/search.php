@@ -15,13 +15,6 @@ session_start();
     <meta charset="utf-8">
     <link rel="icon" type = "image/png" href="images/logo.ico">
     <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #FFF8F0;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             height: 100%;
             width: 100%;

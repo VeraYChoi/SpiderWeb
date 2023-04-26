@@ -5,11 +5,11 @@
 }
 
 * {
-	margin: 0;
-	padding: 0;
+	margin: auto;
 	color: #001B2E;
 	font-family: standard;
     max-width: 100%;
+	background-color: #FFF8F0;
 }
 
 body {
@@ -88,19 +88,21 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 }
 
 #image_column {
-	height: 450px;
+	height: auto;
 	width: 40%;
 	display: inline-block;
 }
 
 #info_column {
 	line-height: 30px;
-    	font-size: 20px;
-	height: 450px;
+    font-size: 20px;
+	height: auto;
+	max-height: 20em;
 	margin-left: 2%;
 	width: 50%;
 	display: inline-block;
 	vertical-align:top;
+	overflow-y: scroll;
 }
 .castMembers {
     margin-left: auto;
@@ -119,12 +121,13 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
         height: auto;
     }
     #info_column {
-	line-height: 30px;
+		line-height: 30px;
     	font-size: 20px;
-        margin-left: 5%;
+        margin: auto;
         width: 80%;
         display: block;
         height: auto;
+		max-height: 20em;
     }
     #cast_button {
         display: block;

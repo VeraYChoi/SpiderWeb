@@ -27,6 +27,7 @@ header h1 {
 	display: inline-block;
 	width: 20%;
 	text-align: right;
+	margin:auto
 }
 
 #search_btn {
@@ -55,6 +56,8 @@ header h1 {
 	border: none;
 	cursor: pointer;
 	background-color: #00000000;
+	margin:auto;
+	height:100%
 }
 
 #user .username {
