@@ -13,6 +13,20 @@
         <meta charset="utf-8">
         <link rel="icon" type = "image/png" href="images/logo.ico">
         <style>
+		 .cast_btn {
+	padding: 10px;
+	font-size: 1em;
+	background-color: #001B2E;
+	border: 0px;
+	color: #FFF8F0;
+
+    margin-top: 50px;
+	margin-left: auto;
+    margin-right: auto;
+	display:block;
+	font-size: 30px;
+	margin-bottom: 30px;
+}
             #btn {
               display: none;
               position: fixed;
