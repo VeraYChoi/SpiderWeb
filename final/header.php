@@ -12,8 +12,6 @@ header h1 {
 	border: 15px;
 	border-radius: 30px;
 	margin: 10px auto;
-	padding-top: 10px;
-	padding-bottom: 16px;
 	font-size: 2em;
 	font-weight: bold;
 	color: #FFF8F0;
@@ -22,6 +20,12 @@ header h1 {
 	padding: 10px 1em 16px;
 	float: center;
 	max-height: 1em;
+}
+h1.large {
+	display:block
+}
+h1.small {
+	display:none
 }
 
 #search_button {
@@ -102,6 +106,27 @@ header h1 {
 	display:block;
 }
 
+@media (max-width: 400px) {
+	header {
+		flex-wrap:wrap
+	}
+	header h1.small {
+		display:block;
+	}
+	header h1.large {
+		display:none
+	}
+	#user.username {
+		font-size:12px
+	}
+	#search_button {
+		width: 20%;
+	}
+	#dropdown {
+		width: 80%
+	}
+}
+
 </style>
 <?php
 
@@ -126,14 +151,15 @@ echo "<header>";
 				echo "<form method='post' action='login.php?origin=$filename' class='loginout'><input type='submit' id='log' name='logout' value='Log Out'></form>";
 			}
 			else{
-				echo "<form method='get' action='login.php?origin=$filename' class='loginout'><input type='submit' id='log' value='Log In'></form>";
+				echo "<form method='post' action='login.php?origin=$filename' class='loginout'><input type='submit' id='log' value='Log In'></form>";
 			}
 		echo "</div>";
 	echo "</div>";
-	echo '<h1>'.$pagetitle.'</h1>';
+	echo '<h1 class="large">'.$pagetitle.'</h1>';
 	echo '<div id="search_button">';
 	echo '<a id="search_btn" href="search.php"><i class="fa-solid fa-magnifying-glass" style="color: #001B2E;"></i></a>';
 	echo '</div>';
+	echo '<h1 class="small">'.$pagetitle.'</h1>';
 echo "</header>";
 echo '<script src="https://kit.fontawesome.com/a7de828ebd.js" crossorigin="anonymous"></script>';
 echo '<script>'

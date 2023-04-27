@@ -505,7 +505,7 @@ curl_close($curl);
             echo "<script>produce_output();</script>";
         }
         else {
-            echo "<p class='unavailable'>This page is only available to logged in users. Please <a href='./login.php'>Log In</a> here.</p>";
+            echo "<p class='unavailable'>This page is only available to logged in users. Please <a href='./login.php?origin=rec.php'>Log In</a> here.</p>";
         }
     ?>
 
