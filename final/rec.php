@@ -284,6 +284,7 @@ curl_close($curl);
         // const wishlist_id = [299534];
         // const watched_id = [299536];
         const arr = wishlist_id.concat(watched_id);
+        arr.push(1234);
         console.log("arr lenght: " + arr.length);
         if (arr.length == 0) {
             document.write("<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>");
