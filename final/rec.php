@@ -344,8 +344,8 @@ curl_close($curl);
                     }
                 }
                 if (count == arr.length) {
-                    document.getElementById("show_data").innerHTML = "<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>";
-                    //document.write("<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>");
+                    //document.getElementById("show_data").innerHTML = "<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>";
+                    document.body.innerHTML += "<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>";
                     break;
                 }
                 i++;
