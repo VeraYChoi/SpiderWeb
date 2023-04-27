@@ -245,6 +245,7 @@ session_start();
             $("#add_to_watched" + i).css("background-color","#E84855");
             $("#add_to_wishlist" + i).css("display","block");
             $("#fav" + i).html("Add to favourites");
+	    $("#fav" + i).css("background-color","#AFE1AF");
             $("#fav" + i).css("display","none");
             $.ajax({
                 url: "removefromwatch.php",
