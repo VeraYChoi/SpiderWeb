@@ -200,15 +200,14 @@ session_start();
 
     function showCast(i) {
         var x = document.getElementById("cast" + i);
-	var button = $("#cast_button").eq(i);
-        var button = document.getElementById("cast_button");
-        if (button.html() == "Click to see cast info!") {
+	var button = document.getElementById("cast_button" + i);
+        if (button.innerHTML == "Click to see cast info!") {
             x.style.display = "grid";
-            button.html("Click to close cast info!");
+            button.innerHTML = "Click to close cast info!";
         }
         else {
             x.style.display = "none";
-            button.html("Click to see cast info!");
+            button.innerHTML = "Click to see cast info!");
         }
     }
     
@@ -387,7 +386,7 @@ session_start();
         }
         document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string.substring(0,genre_string.length-2) + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
 
-        document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
+        document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button"+i+"'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
         get_cast_info(movie_id, i);
         document.getElementById("movie" + i).innerHTML += "</ul></div>"
         //document.getElementById("movie" + i).innerHTML += "</p>";
