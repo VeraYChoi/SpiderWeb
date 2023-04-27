@@ -294,7 +294,7 @@ curl_close($curl);
         const arr = wishlist_id.concat(fav_id);
         console.log("arr lenght: " + arr.length);
         if (arr.length == 0) {
-            document.write("<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>");
+            document.body.innerHTML += "<p class='unavailable'>Please <a href=./search.php>add more movies</a> to your wishlist and favourites to see your personalized movie recommendation list!</p>";
         }
         else {
             console.log("wishlist: " + wishlist_id);
@@ -364,7 +364,7 @@ curl_close($curl);
                 }
                 if (count == arr.length) {
                     //document.getElementById("show_data").innerHTML = "<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>";
-                    document.body.innerHTML += "<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>";
+                    document.body.innerHTML += "<p class='unavailable'>Please <a href=./search.php>add more movies</a> to your wishlist and favourites to see your personalized movie recommendation list!</p>";
                     break;
                 }
                 i++;

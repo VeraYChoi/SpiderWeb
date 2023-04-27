@@ -196,6 +196,14 @@ p.unavailable {
 	font-size: 24px;
 
 }
+p.unavailable a {
+	color: #E84855;
+	text-decoration: none;
+}
+p.unavailable a:hover {
+	font-weight: bolder;
+	text-decoration: underline;
+}
 /* rgb(#fff8f0)
 rgb(#e84855)
 rgb(#00cfc1)
