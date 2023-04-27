@@ -302,7 +302,7 @@ curl_close($curl);
             console.log("arr: " + arr);
             const rec_arr = [];
             console.log("rec arr lenght: " + rec_arr.length);
-            let i = 0, page = 1, k = 0, count = 0, count_added = 0, mov_num = 0;
+            let i = 0, page = 1, k = 0, count = 0, count_added = 0, mov_num = 0, cur_add = 0;
             while(count_added < 20 && i < arr.length)
             {
                 let apiUrl = "https://api.themoviedb.org/3/movie/" + arr[i] + "/recommendations?api_key=fcabeffb7c941589973c5ba5beb7f636&language=en-US&page=" + page;
@@ -314,7 +314,8 @@ curl_close($curl);
                     count++;
                 }
                 else {
-                    for (let k = 0; k < 4; k++) {
+                    curr_add = 0;
+                    while (curr_add < 4) {
                         let can_output = true;
                         rec_arr.every((rec_movie) => {
                             if (rec_movie == obj[k]["id"]) {
@@ -355,7 +356,10 @@ curl_close($curl);
 
                             output(movie_id, mov_num++, title, img_source, genres, overview, date);
                             count_added++;
+                            curr_add++;
+                            
                         }
+                        k++;
                     }
                 }
                 if (count == arr.length) {
