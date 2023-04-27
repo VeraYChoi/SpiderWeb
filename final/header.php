@@ -25,7 +25,8 @@ h1.large {
 	display:block
 }
 h1.small {
-	display:none
+	display:none;
+	font-size:8vw
 }
 
 #search_button {
@@ -106,7 +107,7 @@ h1.small {
 	display:block;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 	header {
 		flex-wrap:wrap
 	}

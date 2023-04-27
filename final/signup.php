@@ -21,8 +21,8 @@ session_start();
 ?>
 
 <?php
-	$helptext = "<p id='help'>Already have an account? <a href='./login.php'>Log in here</a>.</p>";
-	$errortext = "<p id='error'></p>";
+	$helptext = "<p class='help'>Already have an account? <a href='./login.php'>Log in here</a>.</p>";
+	$errortext = "<p class='error'></p>";
 	if ($_POST) {
 		//establish connection info	
 		$server = "35.212.42.21";
@@ -39,11 +39,11 @@ session_start();
 		$pw = hash("sha256", $_POST['password']);
 		foreach ($result as $rowid=>$rowdata) {
 			if ($rowdata['username'] == $un) {
-				$helptext = "<p id='help'>This username already exists. Please choose a different username or <a href='./login.php'>Log In</a> here.</p>";
+				$helptext = "<p class='help'>This username already exists. Please choose a different username or <a href='./login.php'>Log In</a> here.</p>";
 				$continue = false;
 			}
 			if ($rowdata['email'] == $em) {
-				$helptext = "<p id='help'>An account with this email address already exists. Please <a href='./login.php'>Log In</a> here.</p>";
+				$helptext = "<p class='help'>An account with this email address already exists. Please <a href='./login.php'>Log In</a> here.</p>";
 				$continue = false;
 			}
 		}
@@ -80,8 +80,8 @@ echo $helptext;
 
 <script>
 	form_obj = document.querySelector("#signup_form");
-	helptext = document.querySelector("#help");
-	errortext = document.querySelector("#error");
+	helptext = document.querySelector("p.help");
+	errortext = document.querySelector("p.error");
 	
 
 	form_obj.onsubmit = function() {
@@ -113,7 +113,7 @@ echo $helptext;
 			return false;
 		}
 		else if ((/\W/.test(un))) {
-			errortext.innerHTML = "Your username cannot contain special characters other than '_'.";
+			errortext.innerHTML = 'Your username cannot contain special characters other than "_".';
 			return false;
 		}
 		else if (pw.length<8) {

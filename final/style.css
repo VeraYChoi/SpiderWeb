@@ -30,8 +30,8 @@ form.ls label {font-weight: bold; margin-bottom: 0.5em;}
 /* form.ls input {margin:1em;} */
 form.ls input[type='text'],input[type='password'] {border-top: none; border-left: none; border-right: none; background-color: #E8485500; height: 1.5em; width: 70%; margin-bottom: 2em}
 form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; border: 2px solid; cursor: pointer; border-radius: 10px;}
-#help {font-size: 24px; margin-top: 1em;}
-#error {font-size: 24px; color: red; font-weight: bold; margin-bottom: 0.5em;}
+p.help {text-align: center; font-size: 24px; margin-top: 1em;}
+p.error {text-align: center; font-size: 24px; color: red; font-weight: bold; margin-bottom: 0.5em;}
 
 /* DISPLAYMOVIES */
 .cast_btn {
@@ -194,7 +194,16 @@ p.unavailable {
 	font-weight: bold;
 	margin-top: 5%;
 	font-size: 24px;
+	width:80%
 
+}
+p.unavailable a, p.help a {
+	color: #E84855;
+	text-decoration: none;
+}
+p.unavailable a:hover, p.help a:hover  {
+	font-weight: bolder;
+	text-decoration: underline;
 }
 /* rgb(#fff8f0)
 rgb(#e84855)

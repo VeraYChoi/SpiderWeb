@@ -26,8 +26,8 @@ session_start();
 ?>
 
 <?php
-	$helptext = "<p id='help'>Don't have an account? <a href='./signup.php'>Sign up here</a>.</p>";
-	$errortext = "<p id='error'></p>";
+	$helptext = "<p class='help'>Don't have an account? <a href='./signup.php'>Sign up here</a>.</p>";
+	$errortext = "<p class='error'></p>";
 	if ($_POST) {
 		//establish connection info
 		$server = "35.212.42.21";
@@ -58,7 +58,7 @@ session_start();
 						echo '<script type="text/javascript">window.location = "'.$redirect.'"</script>';
 					}
 					else {
-						$errortext = "<p id='error'>Incorrect password.</p>";
+						$errortext = "<p class='error'>Incorrect password.</p>";
 					}
 				}
 			}
@@ -78,7 +78,7 @@ session_start();
 						echo '<script type="text/javascript">window.location = "'.$redirect.'"</script>';
 					}
 					else {
-						$errortext = "<p id='error'>Incorrect password.</p>";
+						$errortext = "<p class='error'>Incorrect password.</p>";
 					}
 
 				}
@@ -86,7 +86,7 @@ session_start();
 		}
 
 		if (!$found) {
-			$helptext = "<p id='help'>We don't have an account with this email address or username. Please <a href='./signup.php'>Create an account</a> here.</p>";
+			$helptext = "<p class='help'>We don't have an account with this email address or username. Please <a href='./signup.php'>Create an account</a> here.</p>";
 		}
 
 		$conn->close();
@@ -124,9 +124,9 @@ echo $actionurl;
 <script>
 
 	form_obj = document.querySelector("#login_form");
-	errortext = document.querySelector("#error");
-	helptext = document.querySelector("#help");
-	loggedin = document.querySelector(".unavailable");
+	errortext = document.querySelector("p.error");
+	helptext = document.querySelector("p.help");
+	loggedin = document.querySelector("p.unavailable");
 	
 	form_obj.onsubmit = function() {
 		un = document.querySelector("#un").value;
