@@ -344,8 +344,8 @@ curl_close($curl);
                     }
                 }
                 if (count == arr.length) {
-                    document.write("<p class='unavailable'>Please add more movies to your wishlist and watchlist to see your personalized movie recommendation list!</p>");
-                    break;
+                    document.write("<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>");
+                    //break;
                 }
                 i++;
             }
