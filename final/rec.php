@@ -256,6 +256,17 @@ curl_close($curl);
             }
         }
         $wishids_json = json_encode($wishids);
+        
+            
+        $sql = "SELECT MovieId from Favorites WHERE UserId='".$curruser."'";
+        $q = $conn->query($sql);
+        $favids = [];
+        foreach ($q as $rowid=>$rowdata) {
+            foreach ($rowdata as $key=>$value) {
+                $favids[$rowid] = $value;
+            }
+        }
+        $favids_json = json_encode($favids);
     
         $sql = "SELECT MovieId from Watched WHERE UserId='".$curruser."'";
         $q = $conn->query($sql);
@@ -269,22 +280,18 @@ curl_close($curl);
     
         echo "const wishlist_id = JSON.parse('".$wishids_json."');";
         echo "const watched_id = JSON.parse('".$watchedids_json."');";
+        echo "const fav_id = JSON.parse('".$favids_json."');";
     }
     else {
         echo "const wishlist_id = [];";
         echo "const watched_id = [];";
+        echo "const fav_id = [];";
     }
     ?>
 
-    // const wishlist_id = [299534, 299536];
-    // const watched_id = [];
-    
-    var similar_id = [];
         
     async function produce_output() {
-        // const wishlist_id = [299534];
-        // const watched_id = [299536];
-        const arr = wishlist_id.concat(watched_id);
+        const arr = wishlist_id.concat(fav_id);
         console.log("arr lenght: " + arr.length);
         if (arr.length == 0) {
             document.write("<p class='unavailable'>Please add more movies to your wishlist and favourites to see your personalized movie recommendation list!</p>");
@@ -318,6 +325,13 @@ curl_close($curl);
                         });
                         arr.every((movie) => {
                             if (movie == obj[k]["id"]) {
+                                can_output = false;
+                                return false;
+                            }
+                            return true;
+                        });
+                        watched_id.every((watched_movie) => {
+                            if (watched_movie == obj[k]["id"]) {
                                 can_output = false;
                                 return false;
                             }
