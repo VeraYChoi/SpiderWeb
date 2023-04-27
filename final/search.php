@@ -200,14 +200,15 @@ session_start();
 
     function showCast(i) {
         var x = document.getElementById("cast" + i);
+	var button = $("#cast_button").eq(i);
         var button = document.getElementById("cast_button");
-        if (button.innerHTML == "Click to see cast info!") {
+        if (button.html() == "Click to see cast info!") {
             x.style.display = "grid";
-            button.innerHTML = "Click to close cast info!";
+            button.html("Click to close cast info!");
         }
         else {
             x.style.display = "none";
-            button.innerHTML = "Click to see cast info!";
+            button.html("Click to see cast info!");
         }
     }
     
