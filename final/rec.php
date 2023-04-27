@@ -257,7 +257,7 @@ curl_close($curl);
         }
         $wishids_json = json_encode($wishids);
     
-        $sql = "SELECT MovieId from Favorites WHERE UserId='".$curruser."'";
+        $sql = "SELECT MovieId from Watched WHERE UserId='".$curruser."'";
         $q = $conn->query($sql);
         $watchedids = [];
         foreach ($q as $rowid=>$rowdata) {
