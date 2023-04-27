@@ -34,7 +34,7 @@ form.ls input[type='submit'] {padding:0.5em; margin:auto; font-size: large; bord
 #error {font-size: 24px; color: red; font-weight: bold; margin-bottom: 0.5em;}
 
 /* DISPLAYMOVIES */
-.cast_btn {
+.movieClass > button {
 	padding: 10px;
 	font-size: 1em;
 	background-color: #001B2E;
@@ -195,14 +195,6 @@ p.unavailable {
 	margin-top: 5%;
 	font-size: 24px;
 
-}
-p.unavailable a {
-	color: #E84855;
-	text-decoration: none;
-}
-p.unavailable a:hover {
-	font-weight: bolder;
-	text-decoration: underline;
 }
 /* rgb(#fff8f0)
 rgb(#e84855)
