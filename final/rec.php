@@ -87,7 +87,7 @@ curl_close($curl);
 
     function showCast(i) {
         var x = document.getElementById("cast" + i);
-        var button = document.getElementById("cast_button");
+	    var button = document.getElementById("cast_button" + i);
         if (button.innerHTML == "Click to see cast info!") {
             x.style.display = "grid";
             button.innerHTML = "Click to close cast info!";
@@ -392,7 +392,7 @@ curl_close($curl);
 
         document.getElementById("movie" + i).innerHTML += "<div id='info_column'><h2 id='title'> " + title + "</h2> <p id='date'> <strong>Release Date: </strong>" + date + "</p><p id='genres'><strong>Genres: </strong>" + genre_string.substring(0,genre_string.length-2) + "</p> <p id='overview'> <strong>Overview: </strong>" + overview + "</p></div>";
         
-        document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" id='cast_button'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
+        document.getElementById("movie" + i).innerHTML += "<button onclick=\"showCast(" + i + ")\" class='cast_btn' id='cast_button"+i+"'>Click to see cast info!</button><div id=\"list_cast\"><ul id='cast" + i + "'>";
         get_cast_info(movie_id, i);
         document.getElementById("movie" + i).innerHTML += "</ul></div>"
         document.getElementById("movie" + i).innerHTML += "<div id='add_buttons'><button id='add_to_watched" +i + "' onclick='add_to_watched(" + i + ", " + movie_id + ")'>Add to watched</button><button id='add_to_wishlist" + i + "' onclick='add_to_wishlist(" + i + ", " + movie_id + ")'>Add to wishlist</button><button id='fav" + i + "' onclick='add_to_fav(" + i + ", " + movie_id + ")'>Add to favourites</button></div>";
