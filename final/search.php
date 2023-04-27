@@ -207,7 +207,7 @@ session_start();
         }
         else {
             x.style.display = "none";
-            button.innerHTML = "Click to see cast info!");
+            button.innerHTML = "Click to see cast info!";
         }
     }
     
